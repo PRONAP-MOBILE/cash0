@@ -21,7 +21,6 @@ public class SplashActivity extends AppCompatActivity {
 
         ivLogo = (ImageView) findViewById(R.id.ivLogo);
 
-
         //for test - must be removed
         ivLogo.setOnClickListener(new View.OnClickListener() {
             @Override
