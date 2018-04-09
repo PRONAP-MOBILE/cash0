@@ -5,11 +5,24 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context="com.mobil.pronap.cash0.Activities.ProfilActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+
+    </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:background="@android:color/white"
+        android:layout_below="@id/customToolbar"
         android:id="@+id/mainInfo">
 
         <ImageView
@@ -28,7 +41,8 @@
             android:layout_alignBottom="@+id/ivProfil"
             android:layout_alignLeft="@+id/tvLName"
             android:layout_alignStart="@+id/tvLName"
-            tools:text="Prenom" />
+            android:textColor="@android:color/black"
+            android:text="Prenom" />
 
         <TextView
             android:id="@+id/tvLName"
@@ -39,7 +53,8 @@
             android:layout_marginStart="24dp"
             android:layout_toEndOf="@+id/ivProfil"
             android:layout_toRightOf="@+id/ivProfil"
-            tools:text="Nom" />
+            android:textColor="@android:color/black"
+            android:text="Nom" />
 
         <TextView
             android:id="@+id/tvDate"
@@ -49,7 +64,20 @@
             android:layout_alignStart="@+id/tvFName"
             android:layout_below="@+id/tvFName"
             android:layout_marginTop="11dp"
-            tools:text="Date d'insciption" />
+            android:textColor="@android:color/black"
+            android:text="Date d'inscription" />
+
+        <ImageButton
+            android:id="@+id/ibSettings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white"
+            app:srcCompat="@drawable/ic_settings" />
 
     </RelativeLayout>
 
@@ -60,13 +88,20 @@
         android:layout_width="match_parent"
         android:layout_below="@+id/mainInfo"
         android:layout_height="match_parent"
+        android:background="@android:color/white"
         android:orientation="vertical"
         tools:context=".MainActivity">
 
         <com.astuetz.PagerSlidingTabStrip
             android:id="@+id/tabs"
             android:layout_width="match_parent"
-            android:layout_height="48dip" />
+            android:layout_height="48dp"
+            android:textSize="10sp"
+            android:textColor="#000000"
+            app:pstsDividerColor="@color/colorPrimary"
+            app:pstsIndicatorColor="@color/colorAccent"
+            app:pstsUnderlineColor="@color/colorPrimary"
+            app:pstsTabPaddingLeftRight="8dp"/>
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"

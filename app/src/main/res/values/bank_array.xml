@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bank_array">
+        <item>BNC</item>
+        <item>BUH</item>
+        <item>Sogebank</item>
+        <item>Unibank</item>
+        <item>Capital Bank</item>
+    </string-array>
+</resources>

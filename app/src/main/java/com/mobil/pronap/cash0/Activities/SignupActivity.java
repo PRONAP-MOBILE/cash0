@@ -3,6 +3,7 @@ package com.mobil.pronap.cash0.Activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -27,6 +28,8 @@ public class SignupActivity extends AppCompatActivity {
 
     Button btnRegister;
     Intent i;
+
+    Toolbar customToolbar;
 
 
     @Override
@@ -58,6 +61,11 @@ public class SignupActivity extends AppCompatActivity {
         tvCardDate = (AutoCompleteTextView) findViewById(R.id.tvCardDate);
         spBankChooser = (Spinner) findViewById(R.id.spBankChooser);
         btnRegister = (Button) findViewById(R.id.btnRegister);
+
+        customToolbar = (Toolbar) findViewById(R.id.customToolbar);
+        setSupportActionBar(customToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
     }
 

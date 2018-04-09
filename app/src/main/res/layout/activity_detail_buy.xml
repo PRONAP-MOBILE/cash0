@@ -4,11 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
-    android:paddingTop="40dp"
-    android:paddingRight="5dp"
-    android:paddingLeft="5dp"
     tools:context="com.mobil.pronap.cash0.Activities.DetailBuyActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+
+
+    </android.support.v7.widget.Toolbar>
 
 
     <TextView
@@ -16,9 +26,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:text="Nom du produit"
         android:textColor="@android:color/black"
-        android:textSize="22sp"
-        android:text="Nom du produit" />
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/tvProductDetail"
@@ -26,39 +36,41 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:lines="8"
+        android:text="Detail sur le produit"
         android:textColor="@android:color/black"
-        android:textSize="18sp"
-        android:text="Detail sur le produit" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tvProductPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:text="Prix"
         android:textColor="@android:color/holo_red_light"
-        android:textSize="18sp"
-        android:text="Prix" />
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:orientation="horizontal"
-        android:paddingLeft="30dp" android:paddingStart="30dp">
+        android:paddingLeft="30dp"
+        android:paddingStart="30dp">
 
 
         <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
             android:id="@+id/btnValidate"
-            android:text="Acheter"/>
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Acheter" />
 
         <Button
-            android:layout_width="150dp"
-            android:layout_marginLeft="10dp"
-            android:layout_height="wrap_content"
             android:id="@+id/btnCancel"
-            android:text="Annule" android:layout_marginStart="10dp"/>
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:text="Annule" />
 
 
     </LinearLayout>

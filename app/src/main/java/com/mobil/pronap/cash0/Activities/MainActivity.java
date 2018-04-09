@@ -3,6 +3,8 @@ package com.mobil.pronap.cash0.Activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -17,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnSell;
     TextView tvSignUp;
     Intent i;
+    Toolbar customToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         ibProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //i = new Intent(MainActivity.this, ProfilActivity.class);
-                i = new Intent(MainActivity.this, LoginActivity.class);
+                i = new Intent(MainActivity.this, ProfilActivity.class);
+                //i = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(i);
             }
         });
@@ -77,6 +80,19 @@ public class MainActivity extends AppCompatActivity {
         btnSell = (Button) findViewById(R.id.btnSell);
         tvSignUp = (TextView) findViewById(R.id.tvSignUp);
         tvSignUp.setClickable(true);
+        customToolbar = (Toolbar) findViewById(R.id.customToolbar);
+        setSupportActionBar(customToolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+    }
+
+
+    // Menu icons are inflated just as they were with actionbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_mainactivity, menu);
+        return true;
     }
 }
