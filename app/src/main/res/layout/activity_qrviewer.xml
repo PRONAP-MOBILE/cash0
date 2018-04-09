@@ -4,9 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingRight="5dp"
-    android:paddingLeft="5dp"
+    android:background="@android:color/white"
     tools:context="com.mobil.pronap.cash0.Activities.QRViewerActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+
+
+
+
+    </android.support.v7.widget.Toolbar>
 
 
     <ImageView
@@ -28,13 +40,4 @@
         android:layout_alignParentStart="true"
         tools:text="Instruction pour l'utilisateur" />
 
-    <ImageButton
-        android:id="@+id/ibHome"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="3dp"
-        android:layout_alignEnd="@+id/tvInstruction"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/tvInstruction"
-        app:srcCompat="@mipmap/ic_launcher" />
 </RelativeLayout>

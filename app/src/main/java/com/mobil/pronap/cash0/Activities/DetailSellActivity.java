@@ -3,6 +3,7 @@ package com.mobil.pronap.cash0.Activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ public class DetailSellActivity extends AppCompatActivity {
     EditText etProductDetail;
     EditText etProductPrice;
     Button btnGenerateQR;
+    Toolbar customToolbar;
     Intent i;
 
     @Override
@@ -41,6 +43,10 @@ public class DetailSellActivity extends AppCompatActivity {
         etProductDetail = (EditText) findViewById(R.id.etProductDetail);
         etProductPrice = (EditText) findViewById(R.id.etProductPrice);
         btnGenerateQR = (Button) findViewById(R.id.btnGenarateQR);
+        customToolbar = (Toolbar) findViewById(R.id.customToolbar);
+        setSupportActionBar(customToolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

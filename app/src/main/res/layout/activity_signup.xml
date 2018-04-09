@@ -6,8 +6,21 @@
     android:layout_height="match_parent"
     android:isScrollContainer="true"
     android:orientation="vertical"
+    android:background="@android:color/white"
     android:paddingTop="5dp"
     tools:context="com.mobil.pronap.cash0.Activities.SignupActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+
+
+    </android.support.v7.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -121,10 +134,12 @@
                 android:text="Banque :"
                 android:textSize="24sp" />
 
+            <!-- should be redesigned -->
             <Spinner
                 android:id="@+id/spBankChooser"
                 android:layout_width="240dp"
                 android:layout_marginLeft="20dp"
+                android:entries="@array/bank_array"
                 android:layout_height="30dp">
             </Spinner>
 

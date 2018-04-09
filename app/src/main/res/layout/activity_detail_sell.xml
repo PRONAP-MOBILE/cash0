@@ -1,69 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp"
+    android:background="@android:color/white"
     android:orientation="vertical"
     tools:context="com.mobil.pronap.cash0.Activities.DetailSellActivity">
 
-    <LinearLayout
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customToolbar"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="3dp"
-            android:text="@string/info_produit"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/etProductName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nom du produit: "
-                android:inputType="text"
-                android:maxLines="1"
-                android:singleLine="true" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_marginTop="10dp"
-            android:layout_height="wrap_content">
-
-            <EditText
-                android:id="@+id/etProductDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="200dp"
-                android:hint="Detail sur votre produit"
-                android:inputType="text"
-                android:lines="10"
-                android:maxLines="15"
-                android:singleLine="true" />
-
-        </android.support.design.widget.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_marginTop="5dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="3dp"
+                android:text="@string/info_produit"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -71,31 +48,74 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/etProductPrice"
-                    android:layout_width="200dp"
+                    android:id="@+id/etProductName"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Prix du produit: "
-                    android:inputType="numberSigned"
+                    android:hint="Nom du produit: "
+                    android:inputType="text"
                     android:maxLines="1"
-                    android:singleLine="true"
-                    android:textColor="@android:color/holo_red_light" />
+                    android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
 
+                <EditText
+                    android:id="@+id/etProductDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="200dp"
+                    android:hint="Detail sur votre produit"
+                    android:inputType="text"
+                    android:lines="10"
+                    android:maxLines="15"
+                    android:singleLine="true" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/etProductPrice"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:hint="Prix du produit: "
+                        android:inputType="numberSigned"
+                        android:maxLines="1"
+                        android:singleLine="true"
+                        android:textColor="@android:color/holo_red_light" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnGenarateQR"
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                android:text="@string/generer_qr_text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnGenarateQR"
-            android:layout_width="match_parent"
-            android:layout_marginTop="15dp"
-            android:layout_height="wrap_content"
-            android:text="@string/generer_qr_text" />
+    </ScrollView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
-    </LinearLayout>
-
-
-</ScrollView>
+</LinearLayout>
