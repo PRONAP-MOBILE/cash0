@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="40dp"
+    android:paddingRight="5dp"
+    android:paddingLeft="5dp"
+    tools:context="com.mobil.pronap.cash0.Activities.DetailBuyActivity">
+
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        android:text="Nom du produit" />
+
+    <TextView
+        android:id="@+id/tvProductDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:lines="8"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:text="Detail sur le produit" />
+
+    <TextView
+        android:id="@+id/tvProductPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="18sp"
+        android:text="Prix" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp" android:paddingStart="30dp">
+
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnValidate"
+            android:text="Acheter"/>
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCancel"
+            android:text="Annule" android:layout_marginStart="10dp"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
