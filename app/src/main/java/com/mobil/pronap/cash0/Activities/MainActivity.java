@@ -83,8 +83,6 @@ public class MainActivity extends AppCompatActivity {
         customToolbar = (Toolbar) findViewById(R.id.customToolbar);
         setSupportActionBar(customToolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
     }
 
 
