@@ -68,7 +68,7 @@ public class ProfilActivity extends AppCompatActivity {
     public  class NotespagerAdapter extends FragmentPagerAdapter {
 
         final int PAGE_COUNT = 2;
-        private String tabTitle[] = {"Info. Personelles", "Transactions"};
+        private String tabTitle[] = {"Info. Personelles", "Transaction"};
 
         public NotespagerAdapter(FragmentManager fm){
             super(fm);
