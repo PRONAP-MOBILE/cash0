@@ -8,57 +8,71 @@
     android:background="@android:color/white"
     tools:context="com.mobil.pronap.cash0.Activities.MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/customToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        app:titleTextColor="@android:color/white">
+    <!--
+
+   <android.support.v7.widget.Toolbar
+       android:id="@+id/customToolbar"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="?attr/colorPrimary"
+       android:minHeight="?attr/actionBarSize"
+       app:titleTextColor="@android:color/white">
+   </android.support.v7.widget.Toolbar>
 
 
 
+   <ImageButton
+       android:id="@+id/ibProfil"
+       android:layout_width="100dp"
+       android:layout_height="100dp"
+       android:layout_marginTop="10dp"
+       android:layout_centerHorizontal="true"
+       android:layout_below="@+id/customToolbar"
+       android:background="@drawable/shapeimg"
+       android:contentDescription="@string/link_profil"
+       android:src="@mipmap/ic_launcher_round" />
+       -->
 
-    </android.support.v7.widget.Toolbar>
-
-    <ImageButton
-        android:id="@+id/ibProfil"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/ivProfil"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:src="@mipmap/ic_launcher_round"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#44749D"
         android:layout_below="@+id/customToolbar"
-        android:contentDescription="@string/link_profil"
-        android:src="@mipmap/ic_launcher_round" />
+        android:contentDescription="@string/link_profil"/>
 
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_centerInParent="true"
-        android:paddingTop="50dp"
-        android:paddingBottom="50dp"
-        android:isScrollContainer="true"
-        android:layout_below="@+id/ibProfil"
-        android:layout_marginTop="80dp"
-        android:orientation="vertical">
+        android:id="@+id/linmain"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/ivProfil"
+        android:padding="20dp"
+        android:orientation="horizontal">
 
 
         <Button
             android:id="@+id/btnBuy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/buy_button_text" />
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:text="@string/buy_button_text"
+            android:background="@drawable/shape1"
+            android:layout_marginRight="20dp"/>
 
         <Button
             android:id="@+id/btnSell"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/sell_button_text" />
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:text="@string/sell_button_text"
+            android:background="@drawable/shape1"/>
 
 
     </LinearLayout>
@@ -68,7 +82,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:layout_alignParentBottom="true"
+        android:textStyle="bold"
+        android:layout_below="@+id/linmain"
         android:layout_centerHorizontal="true"
         android:text="@string/sign_up_text" />
 
