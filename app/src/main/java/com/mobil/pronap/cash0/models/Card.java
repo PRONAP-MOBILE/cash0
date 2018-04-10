@@ -1,4 +1,4 @@
-package com.mobil.pronap.cash0.Models;
+package com.mobil.pronap.cash0.models;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -11,7 +11,6 @@ import java.util.ArrayList;
  */
 
 public class Card {
-
     private int cardNumber;
     private int noCompt;
     private int routingNumberBank;
@@ -65,4 +64,5 @@ public class Card {
         }
         return cards;
     }
+
 }

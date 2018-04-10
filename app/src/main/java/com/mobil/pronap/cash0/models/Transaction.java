@@ -1,4 +1,4 @@
-package com.mobil.pronap.cash0.Models;
+package com.mobil.pronap.cash0.models;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -55,5 +55,6 @@ public class Transaction {
         }
         return transactions;
     }
+
 
 }
