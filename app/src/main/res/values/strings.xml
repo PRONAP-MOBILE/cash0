@@ -21,6 +21,9 @@
         completions."
     </string>
     <string name="todo">TODO</string>
+    <string name="info1">Plus besoin de liquide pour fonctionner, votre carte est votre billet</string>
+    <string name="info2">Utilisez davantage votre carte pour echanger, vente rapide et achat rapide via votre smartphone</string>
+    <string name="info3">Plus de garantie en terme de sécurité physique</string>
     <string name="sign_up_fname">Nom:</string>
     <string name="sign_up_LName">Prenom:</string>
     <string name="sign_up_phone">Telephone:</string>
@@ -33,4 +36,23 @@
     <string name="btn_scan_text">Scanner</string>
     <string name="generer_qr_text">Generer le code de vente</string>
     <string name="info_produit">Information sur le produit</string>
+
+    <!-- dots inactive colors -->
+    <color name="dot_inactive_screen1">#ffa000</color>
+    <color name="dot_inactive_screen2">#008c57</color>
+    <color name="dot_inactive_screen3">#0e1e49</color>
+    <!-- dots active colors -->
+    <color name="dot_active_screen1">#f9c772</color>
+    <color name="dot_active_screen2">#74f7c5</color>
+    <color name="dot_active_screen3">#3a67e0</color>
+    <array name="array_dot_active">
+        <item>@color/dot_active_screen1</item>
+        <item>@color/dot_active_screen2</item>
+        <item>@color/dot_active_screen3</item>
+    </array>
+    <array name="array_dot_inactive">
+        <item>@color/dot_inactive_screen1</item>
+        <item>@color/dot_inactive_screen2</item>
+        <item>@color/dot_inactive_screen3</item>
+    </array>
 </resources>
