@@ -1,4 +1,4 @@
-package com.mobil.pronap.cash0.Models;
+package com.mobil.pronap.cash0.models;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,6 +58,10 @@ public class User {
         this.cardNumber = cardNumber;
     }
 
+    public User(){
+
+    }
+
     public User(JSONObject jsonObject) {
         try {
             this.nif = jsonObject.getString("nif");
@@ -85,4 +89,5 @@ public class User {
         }
         return  users;
     }
+
 }
