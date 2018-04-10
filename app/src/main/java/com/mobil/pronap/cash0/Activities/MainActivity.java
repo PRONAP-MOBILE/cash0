@@ -9,13 +9,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.mobil.pronap.cash0.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton ibProfil;
+    //ImageButton ibProfil;
+    ImageView ivProfil;
     Button btnBuy;
     Button btnSell;
     TextView tvSignUp;
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         init_views();
 
-        ibProfil.setOnClickListener(new View.OnClickListener() {
+        ivProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 i = new Intent(MainActivity.this, ProfilActivity.class);
@@ -76,7 +78,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void init_views(){
-        ibProfil = (ImageButton) findViewById(R.id.ibProfil);
+        //ibProfil = (ImageButton) findViewById(R.id.ibProfil);
+        ivProfil = (ImageView) findViewById(R.id.ivProfil);
         btnBuy = (Button) findViewById(R.id.btnBuy);
         btnSell = (Button) findViewById(R.id.btnSell);
         tvSignUp = (TextView) findViewById(R.id.tvSignUp);

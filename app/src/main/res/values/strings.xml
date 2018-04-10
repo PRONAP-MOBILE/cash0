@@ -2,9 +2,9 @@
     <string name="app_name">Cash 0</string>
     <string name="splash_instruction">Chargement...</string>
     <string name="link_profil">Link_Profil</string>
-    <string name="buy_button_text">Acheter un produit</string>
-    <string name="sell_button_text">Vendre un produit</string>
-    <string name="sign_up_text">Creer un compte</string>
+    <string name="buy_button_text">Acheter</string>
+    <string name="sell_button_text">Vendre</string>
+    <string name="sign_up_text">Pas de Compte? Creer</string>
     <string name="user_profil_img">user_profil_img</string>
     <string name="title_activity_login">Sign in</string>
 
