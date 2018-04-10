@@ -6,6 +6,10 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/**
+ * Created by jetro on 4/10/18.
+ */
+
 public class User {
 
     private String nif;
@@ -82,4 +86,3 @@ public class User {
         return  users;
     }
 }
-

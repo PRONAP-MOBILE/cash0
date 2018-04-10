@@ -6,7 +6,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/**
+ * Created by jetro on 4/10/18.
+ */
+
 public class Transaction {
+
     private int prix;
     private String description;
 
@@ -50,4 +55,5 @@ public class Transaction {
         }
         return transactions;
     }
+
 }
