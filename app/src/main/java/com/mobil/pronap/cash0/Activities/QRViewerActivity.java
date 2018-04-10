@@ -1,20 +1,20 @@
 package com.mobil.pronap.cash0.Activities;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.mobil.pronap.cash0.R;
 
 public class QRViewerActivity extends AppCompatActivity {
 
-
-    ImageButton ibHome;
-    Intent i;
+    ImageView qrCode;
     Toolbar customToolbar;
 
     @Override
@@ -22,10 +22,19 @@ public class QRViewerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qrviewer);
 
-        customToolbar = (Toolbar) findViewById(R.id.customToolbar);
+        customToolbar = findViewById(R.id.customToolbar);
         setSupportActionBar(customToolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        qrCode = findViewById(R.id.ivQRCode);
+
+        Intent intent = getIntent();
+        Bitmap bitmap = intent.getParcelableExtra("qrCode");
+
+        qrCode.setImageBitmap(bitmap);
+
+
 
     }
 
