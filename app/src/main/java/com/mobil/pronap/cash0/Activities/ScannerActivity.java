@@ -78,7 +78,7 @@ public class ScannerActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+                this.finish();
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -86,7 +86,6 @@ public class ScannerActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
+        this.finish();
     }
 }

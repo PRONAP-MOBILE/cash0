@@ -1,6 +1,7 @@
 package com.mobil.pronap.cash0.Activities;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ import com.mobil.pronap.cash0.R;
 public class SplashActivity extends AppCompatActivity {
 
     ImageView ivLogo;
-
+    int time = 3000;
     Intent i;
 
     @Override
@@ -21,14 +22,19 @@ public class SplashActivity extends AppCompatActivity {
 
         ivLogo = (ImageView) findViewById(R.id.ivLogo);
 
-        //for test - must be removed
-        ivLogo.setOnClickListener(new View.OnClickListener() {
+
+
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View view) {
+            public void run() {
                 i = new Intent(SplashActivity.this, MainActivity.class );
                 startActivity(i);
+                overridePendingTransition(R.anim.right, R.anim.left);
+                finish();
+
             }
-        });
+        }, time);
+
 
 
     }
@@ -36,7 +42,6 @@ public class SplashActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
+        moveTaskToBack(true);
     }
 }
