@@ -12,15 +12,20 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_marginTop="100dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/no_cash" />
+            android:layout_width="250dp"
+            android:layout_marginTop="50dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/sec" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:padding="5dp"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:textStyle="italic"
+            android:fontFamily="sans-serif"
             android:layout_gravity="center_horizontal"
             android:text="@string/info3"/>
     </LinearLayout>
