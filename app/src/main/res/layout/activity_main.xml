@@ -8,8 +8,6 @@
     android:background="@android:color/white"
     tools:context="com.mobil.pronap.cash0.Activities.MainActivity">
 
-    <!--
-
    <android.support.v7.widget.Toolbar
        android:id="@+id/customToolbar"
        android:layout_width="match_parent"
@@ -21,6 +19,7 @@
 
 
 
+    <!--
    <ImageButton
        android:id="@+id/ibProfil"
        android:layout_width="100dp"
@@ -76,16 +75,6 @@
 
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textStyle="bold"
-        android:layout_below="@+id/linmain"
-        android:layout_centerHorizontal="true"
-        android:text="X" />
 
 
 </RelativeLayout>

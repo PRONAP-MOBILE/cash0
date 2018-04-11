@@ -21,7 +21,7 @@ import com.mobil.pronap.cash0.R;
 
 public class DetailSellActivity extends AppCompatActivity {
 
-    EditText etProductName;
+
     EditText etProductDetail;
     EditText etProductPrice;
     Button btnGenerateQR;
@@ -40,13 +40,12 @@ public class DetailSellActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 //generate QR code if input objects are not empty
-                if(!TextUtils.isEmpty(etProductName.getText().toString()) &&
-                        !TextUtils.isEmpty(etProductDetail.getText().toString()) &&
+                if(!TextUtils.isEmpty(etProductDetail.getText().toString()) &&
                         !TextUtils.isEmpty(etProductPrice.getText().toString())){
 
                     MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                     try{
-                        BitMatrix bitMatrix = multiFormatWriter.encode(etProductName.getText().toString(), BarcodeFormat.QR_CODE, 300,300);
+                        BitMatrix bitMatrix = multiFormatWriter.encode(etProductDetail.getText().toString(), BarcodeFormat.QR_CODE, 300,300);
                         BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                         Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
 
