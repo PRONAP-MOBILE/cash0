@@ -16,6 +16,7 @@ public class QRViewerActivity extends AppCompatActivity {
 
     ImageView qrCode;
     Toolbar customToolbar;
+    Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,8 @@ public class QRViewerActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+                i = new Intent(QRViewerActivity.this, MainActivity.class);
+                startActivity(i);
             default:
                 return super.onOptionsItemSelected(item);
         }

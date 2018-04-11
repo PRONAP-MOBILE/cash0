@@ -37,6 +37,8 @@
     <string name="btn_scan_text">Scanner</string>
     <string name="generer_qr_text">Generer le code de vente</string>
     <string name="info_produit">Information sur le produit</string>
+    <string name="quit_message">Pressez une nouvelle fois pour quitter</string>
+    <string name="erreur_identifiant">No de téléphone ou mot de passe incorrect</string>
 
     <!-- dots inactive colors -->
     <color name="dot_inactive_screen1">#ffa000</color>

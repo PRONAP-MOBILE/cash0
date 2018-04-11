@@ -5,10 +5,12 @@ import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
@@ -31,24 +33,35 @@ public class DetailSellActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_sell);
         init_views();
+
+
         btnGenerateQR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                //generate QR code
-                MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
-                try{
-                    BitMatrix bitMatrix = multiFormatWriter.encode(etProductName.getText().toString(), BarcodeFormat.QR_CODE, 300,300);
-                    BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
-                    Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+                //generate QR code if input objects are not empty
+                if(!TextUtils.isEmpty(etProductName.getText().toString()) &&
+                        !TextUtils.isEmpty(etProductDetail.getText().toString()) &&
+                        !TextUtils.isEmpty(etProductPrice.getText().toString())){
 
-                    i = new Intent(DetailSellActivity.this, QRViewerActivity.class);
-                    i.putExtra("qrCode", bitmap);
-                    startActivity(i);
+                    MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
+                    try{
+                        BitMatrix bitMatrix = multiFormatWriter.encode(etProductName.getText().toString(), BarcodeFormat.QR_CODE, 300,300);
+                        BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
+                        Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+
+                        i = new Intent(DetailSellActivity.this, QRViewerActivity.class);
+                        i.putExtra("qrCode", bitmap);
+                        startActivity(i);
+                    }
+                    catch (WriterException e){
+                        e.printStackTrace();
+                    }
+
+                }else{
+                    Toast.makeText(DetailSellActivity.this, "Veillez remplir tous les champs", Toast.LENGTH_SHORT).show();
                 }
-                catch (WriterException e){
-                    e.printStackTrace();
-                }
+
             }
         });
 
@@ -69,7 +82,7 @@ public class DetailSellActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+        this.finish();
     }
 
     @Override
