@@ -8,6 +8,7 @@
     android:background="@android:color/white"
     tools:context="com.mobil.pronap.cash0.Activities.MainActivity">
 
+    <!--
 
    <android.support.v7.widget.Toolbar
        android:id="@+id/customToolbar"
@@ -20,17 +21,17 @@
 
 
 
-    <!-- <ImageButton
-        android:id="@+id/ibProfil"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/customToolbar"
-        android:background="@drawable/shapeimg"
-        android:contentDescription="@string/link_profil"
-        android:src="@mipmap/ic_launcher_round" />
-        -->
+   <ImageButton
+       android:id="@+id/ibProfil"
+       android:layout_width="100dp"
+       android:layout_height="100dp"
+       android:layout_marginTop="10dp"
+       android:layout_centerHorizontal="true"
+       android:layout_below="@+id/customToolbar"
+       android:background="@drawable/shapeimg"
+       android:contentDescription="@string/link_profil"
+       android:src="@mipmap/ic_launcher_round" />
+       -->
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -76,6 +77,15 @@
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/tvSignUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/linmain"
+        android:layout_centerHorizontal="true"
+        android:text="X" />
 
 
 </RelativeLayout>
