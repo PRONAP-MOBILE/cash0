@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity{
         customToolbar = (Toolbar) findViewById(R.id.customToolbar);
         setSupportActionBar(customToolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Set up the login form.
 
         //get input text from user

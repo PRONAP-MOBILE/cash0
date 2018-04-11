@@ -85,7 +85,7 @@
         android:textStyle="bold"
         android:layout_below="@+id/linmain"
         android:layout_centerHorizontal="true"
-        android:text="@string/sign_up_text" />
+        android:text="X" />
 
 
 </RelativeLayout>

@@ -57,7 +57,6 @@ public class DetailSellActivity extends AppCompatActivity {
 
 
     public void init_views(){
-        etProductName =  findViewById(R.id.etProductName);
         etProductDetail = findViewById(R.id.etProductDetail);
         etProductPrice = findViewById(R.id.etProductPrice);
         btnGenerateQR = findViewById(R.id.btnGenarateQR);
