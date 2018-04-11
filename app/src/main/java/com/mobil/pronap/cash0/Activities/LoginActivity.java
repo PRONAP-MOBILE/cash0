@@ -61,8 +61,8 @@ public class LoginActivity extends AppCompatActivity{
             // Set up the login form.
 
             //get input text from user
-            phone = (TextInputLayout) findViewById(R.id.phoneNumber);
-            pass = (TextInputLayout) findViewById(R.id.password);
+            //phone = (TextInputLayout) findViewById(R.id.phoneNumber);
+            //pass = (TextInputLayout) findViewById(R.id.password);
             phoneUser = findViewById(R.id.edtphoneNumber);
             passUser = findViewById(R.id.edtpassword);
 
