@@ -3,10 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:background="@android:color/white"
     tools:context="com.mobil.pronap.cash0.Activities.LoginActivity">
+
+
+
+
 
     <!-- Login progress -->
     <ProgressBar
@@ -17,12 +21,13 @@
         android:layout_marginBottom="8dp"
         android:visibility="gone" />
 
+
     <ScrollView
         android:id="@+id/login_form"
-        android:layout_marginTop="30dp"
-        android:paddingBottom="10dp"
         android:layout_width="match_parent"
-        android:layout_height="360dp">
+        android:layout_height="400dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="30dp">
 
 
         <LinearLayout
@@ -43,18 +48,17 @@
                 app:civ_border_color="#44749D"
                 android:contentDescription="@string/link_profil"/>
 
+
             <android.support.design.widget.TextInputLayout
+                android:id="@+id/phoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:id="@+id/phoneNumber"
-                >
-
+                android:layout_marginTop="10dp">
 
                 <EditText
+                    android:id="@+id/edtphoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edtphoneNumber"
                     android:hint="@string/sign_up_phone"
                     android:maxLines="1"
                     android:singleLine="true" />
@@ -64,17 +68,16 @@
 
 
             <android.support.design.widget.TextInputLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:id="@+id/password"
                 android:layout_marginTop="10dp" >
 
-
                 <EditText
+                    android:id="@+id/edtpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edtpassword"
                     android:hint="@string/prompt_password"
                     android:imeActionId="6"
                     android:imeActionLabel="@string/action_sign_in_short"
@@ -87,26 +90,43 @@
 
             <Button
                 android:id="@+id/btLogin"
-                style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorPrimary"
+                android:background="@color/darkBlue"
                 android:text="@string/action_sign_in"
                 android:textColor="@android:color/white"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
+
     </ScrollView>
 
-    <TextView
-        android:id="@+id/tvSignUp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/sign_up_text"
-        android:textAlignment="center"
-        android:textColor="@android:color/black" />
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_account"
+            android:textAlignment="center"
+            android:textColor="@color/darkBlue"/>
+
+        <TextView
+            android:id="@+id/tvSignIp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/action_sign_in_short"
+            android:layout_marginTop="15dp"
+            android:textAlignment="center"
+            android:textColor="@color/darkBlue" />
+    </LinearLayout>
+
 
 
 </LinearLayout>

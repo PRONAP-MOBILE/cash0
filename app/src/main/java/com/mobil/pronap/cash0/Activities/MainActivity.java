@@ -3,6 +3,7 @@ package com.mobil.pronap.cash0.Activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mobil.pronap.cash0.R;
 
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     Intent i;
     Toolbar customToolbar;
     SharedPreferences sharedPreferences;
-
+    Boolean exitApp = false;
 
 
 
@@ -133,4 +135,24 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+
+            if(exitApp){
+                moveTaskToBack(true);
+            }else{
+                Toast.makeText(this, R.string.quit_message, Toast.LENGTH_SHORT).show();
+                exitApp = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        exitApp = false;
+                    }
+                }, 3 * 1000);
+            }
+
+    }
+
 }

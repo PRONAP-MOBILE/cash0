@@ -53,7 +53,7 @@ public class LoginActivity extends AppCompatActivity{
         if(sharedPreferences.getString("infoUser", null)!=null){
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
-        }else{
+        }else {
             //reference views
             customToolbar = (Toolbar) findViewById(R.id.customToolbar);
             setSupportActionBar(customToolbar);
@@ -80,9 +80,7 @@ public class LoginActivity extends AppCompatActivity{
         }
 
 
-
-
-       // mProgressView = findViewById(R.id.login_progress);
+            // mProgressView = findViewById(R.id.login_progress);
     }
 
 

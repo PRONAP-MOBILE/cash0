@@ -8,7 +8,6 @@
     android:background="@android:color/white"
     tools:context="com.mobil.pronap.cash0.Activities.MainActivity">
 
-
    <android.support.v7.widget.Toolbar
        android:id="@+id/customToolbar"
        android:layout_width="match_parent"
@@ -20,17 +19,18 @@
 
 
 
-    <!-- <ImageButton
-        android:id="@+id/ibProfil"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/customToolbar"
-        android:background="@drawable/shapeimg"
-        android:contentDescription="@string/link_profil"
-        android:src="@mipmap/ic_launcher_round" />
-        -->
+    <!--
+   <ImageButton
+       android:id="@+id/ibProfil"
+       android:layout_width="100dp"
+       android:layout_height="100dp"
+       android:layout_marginTop="10dp"
+       android:layout_centerHorizontal="true"
+       android:layout_below="@+id/customToolbar"
+       android:background="@drawable/shapeimg"
+       android:contentDescription="@string/link_profil"
+       android:src="@mipmap/ic_launcher_round" />
+       -->
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -69,13 +69,12 @@
         <Button
             android:id="@+id/btnSell"
             android:layout_width="150dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:text="@string/sell_button_text"
             android:background="@drawable/shape1"/>
 
 
     </LinearLayout>
-
 
 
 </RelativeLayout>
