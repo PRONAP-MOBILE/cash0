@@ -35,7 +35,7 @@
                     android:digits="1234567890."
                     android:hint="Prix en gourdes"
                     android:textColor="@android:color/holo_red_light"
-                    android:textSize="70sp" />
+                    android:textSize="50sp" />
 
             <EditText
                 android:id="@+id/etProductDetail"
@@ -44,7 +44,7 @@
                 android:layout_marginTop="40dp"
                 android:hint="Detail sur le produit"
                 android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
         </LinearLayout>
 

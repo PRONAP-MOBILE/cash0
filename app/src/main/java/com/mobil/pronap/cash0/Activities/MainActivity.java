@@ -1,5 +1,6 @@
 package com.mobil.pronap.cash0.Activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.mobil.pronap.cash0.R;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final Activity activity = this;
 
         //replace the actionBar with toolbar
         customToolbar = (Toolbar) findViewById(R.id.customToolbar);
@@ -70,7 +74,13 @@ public class MainActivity extends AppCompatActivity {
                 if(sharedPreferences.getString("infoUser", null)==null || sharedPreferences.getString("infoUser", null).equals("")){
                     startActivity(new Intent(MainActivity.this, LoginActivity.class));
                 }else{
-                    startActivity(new Intent(MainActivity.this, BuyActivity.class));
+                    IntentIntegrator integrator = new IntentIntegrator(activity);
+                    integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+                    integrator.setPrompt("Scan en cours");
+                    integrator.setCameraId(0);
+                    integrator.setBeepEnabled(false);
+                    integrator.setBarcodeImageEnabled(false);
+                    integrator.initiateScan();
                 }
 
             }
@@ -124,6 +134,41 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result!=null){
+            if(result.getContents()==null){
+                Toast.makeText(getApplicationContext(), "No message", Toast.LENGTH_SHORT).show();
+                //should pass result to intent
+                i = new Intent(MainActivity.this, DetailBuyActivity.class);
+                startActivity(i);
+
+            }
+            else {
+                Toast.makeText(getApplicationContext(), result.getContents().toString(), Toast.LENGTH_SHORT).show();
+                //should pass result to intent
+
+                //Passing data from the QRcode to the activity for buy
+                String information = result.getContents().toString();
+
+                i = new Intent(MainActivity.this, DetailBuyActivity.class);
+                i.putExtra("information", information);
+                startActivity(i);
+            }
+
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "No BarCode", Toast.LENGTH_SHORT).show();
+            i = new Intent(MainActivity.this, MainActivity.class);
+            startActivity(i);
+        }
+
+
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
 

@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.mobil.pronap.cash0.R;
 
@@ -28,10 +29,13 @@ public class QRViewerActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //Get QR Code
+        //Intialize the imageview with rigth qr code
         qrCode = findViewById(R.id.ivQRCode);
 
         Intent intent = getIntent();
         Bitmap bitmap = intent.getParcelableExtra("qrCode");
+        String getInformation = intent.getStringExtra("information") ;
 
         qrCode.setImageBitmap(bitmap);
 

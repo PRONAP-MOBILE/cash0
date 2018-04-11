@@ -45,9 +45,15 @@ public class DetailSellActivity extends AppCompatActivity {
 
                     MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                     try{
-                        BitMatrix bitMatrix = multiFormatWriter.encode(etProductDetail.getText().toString(), BarcodeFormat.QR_CODE, 300,300);
+
+                        String transInfo = etProductPrice.getText().toString() + ";" + etProductDetail.getText().toString();
+
+                        BitMatrix bitMatrix = multiFormatWriter.encode(transInfo, BarcodeFormat.QR_CODE, 300,300);
                         BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                         Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
+
+
+
 
                         i = new Intent(DetailSellActivity.this, QRViewerActivity.class);
                         i.putExtra("qrCode", bitmap);
