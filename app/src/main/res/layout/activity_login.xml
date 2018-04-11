@@ -31,7 +31,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="@drawable/shape">
+        >
 
         <EditText
             android:id="@+id/edtphoneNumber"
@@ -56,7 +56,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
-        android:background="@drawable/shape">
+        >
 
         <EditText
             android:id="@+id/edtpassword"
@@ -85,10 +85,10 @@
             android:layout_below="@+id/inputPassword"
             android:layout_centerHorizontal="true"
             android:text="Connecter"
-            android:textColor="#FFF"
+            android:textColor="#FFFFFF"
             android:textAllCaps="false"
             android:textSize="20sp"
-            android:background="@drawable/btnshape"/>
+            />
 
     </android.support.v7.widget.ButtonBarLayout>
 
