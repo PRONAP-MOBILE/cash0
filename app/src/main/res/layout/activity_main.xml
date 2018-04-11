@@ -61,7 +61,7 @@
         <Button
             android:id="@+id/btnBuy"
             android:layout_width="150dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:text="@string/buy_button_text"
             android:background="@drawable/shape1"
             android:layout_marginRight="20dp"/>
