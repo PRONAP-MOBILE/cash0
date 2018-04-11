@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     ImageView ivProfil;
     Button btnBuy;
     Button btnSell;
-    TextView tvSignUp;
     Intent i;
     Toolbar customToolbar;
     SharedPreferences sharedPreferences;
@@ -35,9 +34,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //replace the actionBar with toolbar
+        customToolbar = (Toolbar) findViewById(R.id.customToolbar);
+        setSupportActionBar(customToolbar);
+        getSupportActionBar().setTitle("Acceuil");
+
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
 
         init_views();
+
 
         ivProfil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,14 +91,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tvSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                i = new Intent(MainActivity.this, SignupActivity.class);
-                startActivity(i);
-            }
-        });
-
 
     }
 
@@ -102,20 +99,18 @@ public class MainActivity extends AppCompatActivity {
         ivProfil = (ImageView) findViewById(R.id.ivProfil);
         btnBuy = (Button) findViewById(R.id.btnBuy);
         btnSell = (Button) findViewById(R.id.btnSell);
-        tvSignUp = (TextView) findViewById(R.id.tvSignUp);
-        tvSignUp.setClickable(true);
         customToolbar = (Toolbar) findViewById(R.id.customToolbar);
         setSupportActionBar(customToolbar);
     }
 
 
-    // Menu icons are inflated just as they were with actionbar
+    /* Menu icons are inflated just as they were with actionbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_mainactivity, menu);
         return true;
-    }
+    }*/
 
 
     @Override

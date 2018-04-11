@@ -50,29 +50,35 @@ public class LoginActivity extends AppCompatActivity{
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        //reference views
-        customToolbar = (Toolbar) findViewById(R.id.customToolbar);
-        setSupportActionBar(customToolbar);
+        if(sharedPreferences.getString("infoUser", null)!=null){
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            finish();
+        }else{
+            //reference views
+            customToolbar = (Toolbar) findViewById(R.id.customToolbar);
+            setSupportActionBar(customToolbar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        // Set up the login form.
+            // Set up the login form.
 
-        //get input text from user
-        phone = (TextInputLayout) findViewById(R.id.phoneNumber);
-        pass = (TextInputLayout) findViewById(R.id.password);
-        phoneUser = findViewById(R.id.edtphoneNumber);
-        passUser = findViewById(R.id.edtpassword);
+            //get input text from user
+            phone = (TextInputLayout) findViewById(R.id.phoneNumber);
+            pass = (TextInputLayout) findViewById(R.id.password);
+            phoneUser = findViewById(R.id.edtphoneNumber);
+            passUser = findViewById(R.id.edtpassword);
 
-        login = findViewById(R.id.btLogin);
+            login = findViewById(R.id.btLogin);
 
 
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                login(phoneUser.getText().toString(), passUser.getText().toString());
+            login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    login(phoneUser.getText().toString(), passUser.getText().toString());
 
-            }
-        });
+                }
+            });
+
+        }
+
 
 
 
