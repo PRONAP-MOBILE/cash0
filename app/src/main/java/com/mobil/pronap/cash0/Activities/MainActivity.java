@@ -10,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.BounceInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -103,6 +106,13 @@ public class MainActivity extends AppCompatActivity {
         btnSell = (Button) findViewById(R.id.btnSell);
         customToolbar = (Toolbar) findViewById(R.id.customToolbar);
         setSupportActionBar(customToolbar);
+
+        final Animation myAnim = AnimationUtils.loadAnimation(this, R.anim.bounce);
+        //BounceInterpolator interpolator = new BounceInterpolator(0.2, 20);
+        //myAnim.setInterpolator(interpolator);
+        btnBuy.startAnimation(myAnim);
+        btnSell.startAnimation(myAnim);
+
     }
 
 
