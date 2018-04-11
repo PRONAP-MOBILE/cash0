@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -34,6 +35,7 @@ public class LoginActivity extends AppCompatActivity{
     private Button login;
     private View mProgressView;
     Toolbar customToolbar;
+    private TextView tvSignUp;
 
     //persistence
     SharedPreferences sharedPreferences ;
@@ -65,6 +67,7 @@ public class LoginActivity extends AppCompatActivity{
             pass = (TextInputLayout) findViewById(R.id.password);
             phoneUser = findViewById(R.id.edtphoneNumber);
             passUser = findViewById(R.id.edtpassword);
+            tvSignUp = (TextView) findViewById(R.id.tvSignUp);
 
             login = findViewById(R.id.btLogin);
 
@@ -74,6 +77,14 @@ public class LoginActivity extends AppCompatActivity{
                 public void onClick(View view) {
                     login(phoneUser.getText().toString(), passUser.getText().toString());
 
+                }
+            });
+
+            tvSignUp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(LoginActivity.this, SignupActivity.class);
+                    startActivity(i);
                 }
             });
 
@@ -102,6 +113,8 @@ public class LoginActivity extends AppCompatActivity{
             Intent i = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(i);
             //progressDialog.dismiss();
+        }else{
+            passUser.setError(getString(R.string.erreur_identifiant));
         }
 
     }
@@ -109,15 +122,14 @@ public class LoginActivity extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
+        this.finish();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+                this.finish();
             default:
                 return super.onOptionsItemSelected(item);
         }

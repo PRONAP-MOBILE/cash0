@@ -41,8 +41,7 @@ public class DetailBuyActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                i = new Intent(DetailBuyActivity.this, MainActivity.class);
-                startActivity(i);
+                returnHome();
             }
         });
 
@@ -68,17 +67,21 @@ public class DetailBuyActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
+        returnHome();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                finish();
+                returnHome();
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void returnHome(){
+        i = new Intent(DetailBuyActivity.this, MainActivity.class);
+        startActivity(i);
     }
 }
