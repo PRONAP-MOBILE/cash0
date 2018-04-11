@@ -1,6 +1,8 @@
 package com.mobil.pronap.cash0.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,23 +22,38 @@ public class MainActivity extends AppCompatActivity {
     ImageView ivProfil;
     Button btnBuy;
     Button btnSell;
-    TextView tvSignUp;
     Intent i;
     Toolbar customToolbar;
+    SharedPreferences sharedPreferences;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //replace the actionBar with toolbar
+        customToolbar = (Toolbar) findViewById(R.id.customToolbar);
+        setSupportActionBar(customToolbar);
+        getSupportActionBar().setTitle("Acceuil");
+
+        sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
+
         init_views();
+
 
         ivProfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                i = new Intent(MainActivity.this, ProfilActivity.class);
-                //i = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(i);
+                //Check if user already login
+                //Make redirection for the correct screen
+                if(sharedPreferences.getString("infoUser", null)==null || sharedPreferences.getString("infoUser", null).equals("")){
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                }else{
+                    startActivity(new Intent(MainActivity.this, ProfilActivity.class));
+                }
             }
         });
 
@@ -46,10 +63,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                // if user connected
-                i = new Intent(MainActivity.this, BuyActivity.class);
-                startActivity(i);
-                //else intent -> (this, loginActivity)
+                //Check if user already login
+                //Make the correct redirection
+                if(sharedPreferences.getString("infoUser", null)==null || sharedPreferences.getString("infoUser", null).equals("")){
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                }else{
+                    startActivity(new Intent(MainActivity.this, BuyActivity.class));
+                }
+
             }
         });
 
@@ -59,18 +80,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //if user connected
-                i = new Intent(MainActivity.this, DetailSellActivity.class);
-                startActivity(i);
-                //else intent -> (this, loginActivity)
-            }
-        });
 
-        tvSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                i = new Intent(MainActivity.this, SignupActivity.class);
-                startActivity(i);
+                //Check if user already login
+                //Make the correct redirection
+                if(sharedPreferences.getString("infoUser", null)==null || sharedPreferences.getString("infoUser", null).equals("")){
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                }else{
+                    startActivity(new Intent(MainActivity.this, DetailSellActivity.class));
+                }
             }
         });
 
@@ -82,21 +99,18 @@ public class MainActivity extends AppCompatActivity {
         ivProfil = (ImageView) findViewById(R.id.ivProfil);
         btnBuy = (Button) findViewById(R.id.btnBuy);
         btnSell = (Button) findViewById(R.id.btnSell);
-        tvSignUp = (TextView) findViewById(R.id.tvSignUp);
-        tvSignUp.setClickable(true);
         customToolbar = (Toolbar) findViewById(R.id.customToolbar);
         setSupportActionBar(customToolbar);
-
     }
 
 
-    // Menu icons are inflated just as they were with actionbar
+    /* Menu icons are inflated just as they were with actionbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_mainactivity, menu);
         return true;
-    }
+    }*/
 
 
     @Override
