@@ -12,10 +12,9 @@
         android:id="@+id/customToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/darkBlue"
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white">
-
     </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
