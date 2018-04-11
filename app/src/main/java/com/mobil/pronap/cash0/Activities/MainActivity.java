@@ -141,9 +141,10 @@ public class MainActivity extends AppCompatActivity {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result!=null){
             if(result.getContents()==null){
-                Toast.makeText(getApplicationContext(), "No message", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "No message", Toast.LENGTH_SHORT).show();
                 //should pass result to intent
-                i = new Intent(MainActivity.this, DetailBuyActivity.class);
+                finish();
+                i = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(i);
 
             }

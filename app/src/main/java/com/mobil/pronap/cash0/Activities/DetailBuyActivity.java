@@ -32,12 +32,16 @@ public class DetailBuyActivity extends AppCompatActivity {
         //Get information from the scanning qr Code
         //Initialize view with correct info
 
-        Intent intent = getIntent();
-        String getInformation = intent.getStringExtra("information");
-        String[] information = getInformation.split(";");
 
-        tvProductPrice.setText(information[0].toString());
-        tvProductDetail.setText(information[1].toString());
+        Intent intent = getIntent();
+        if(intent!=null){
+            String getInformation = intent.getStringExtra("information");
+            String[] information = getInformation.split(";");
+
+            tvProductPrice.setText(information[0].toString());
+            tvProductDetail.setText(information[1].toString());
+        }
+
 
         btnValidate.setOnClickListener(new View.OnClickListener() {
             @Override
