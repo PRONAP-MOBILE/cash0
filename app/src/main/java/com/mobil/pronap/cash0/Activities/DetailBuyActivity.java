@@ -13,8 +13,6 @@ import com.mobil.pronap.cash0.R;
 
 public class DetailBuyActivity extends AppCompatActivity {
 
-
-    TextView tvProductName;
     TextView tvProductDetail;
     TextView tvProductPrice;
     Button btnValidate;
@@ -30,6 +28,16 @@ public class DetailBuyActivity extends AppCompatActivity {
 
 
         init_views();
+
+        //Get information from the scanning qr Code
+        //Initialize view with correct info
+
+        Intent intent = getIntent();
+        String getInformation = intent.getStringExtra("information");
+        String[] information = getInformation.split(";");
+
+        tvProductPrice.setText(information[0].toString());
+        tvProductDetail.setText(information[1].toString());
 
         btnValidate.setOnClickListener(new View.OnClickListener() {
             @Override

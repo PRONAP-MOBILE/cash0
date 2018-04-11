@@ -50,35 +50,6 @@ public class BuyActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-        if(result!=null){
-            if(result.getContents()==null){
-                Toast.makeText(getApplicationContext(), "No message", Toast.LENGTH_SHORT).show();
-                //should pass result to intent
-                i = new Intent(BuyActivity.this, DetailBuyActivity.class);
-                startActivity(i);
-
-            }
-            else {
-                Toast.makeText(getApplicationContext(), result.getContents().toString(), Toast.LENGTH_SHORT).show();
-                //should pass result to intent
-                i = new Intent(BuyActivity.this, DetailBuyActivity.class);
-                startActivity(i);
-            }
-
-        }
-        else{
-            Toast.makeText(getApplicationContext(), "No BarCode", Toast.LENGTH_SHORT).show();
-            i = new Intent(BuyActivity.this, MainActivity.class);
-            startActivity(i);
-        }
-
-
-
-        super.onActivityResult(requestCode, resultCode, data);
-    }
 
 
     @Override
