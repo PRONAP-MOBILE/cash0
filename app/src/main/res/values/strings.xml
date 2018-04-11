@@ -4,13 +4,14 @@
     <string name="link_profil">Link_Profil</string>
     <string name="buy_button_text">Acheter</string>
     <string name="sell_button_text">Vendre</string>
-    <string name="sign_up_text">Pas de Compte? Creer</string>
+    <string name="forgot_account">Forgot User ID or Password</string>
+    <string name="create_account_text">Creer un Compte</string>
     <string name="user_profil_img">user_profil_img</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
-    <string name="prompt_password">Mot de passe</string>
+    <string name="prompt_password">Password</string>
     <string name="action_sign_in">Connection</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">email non valide</string>
@@ -26,7 +27,7 @@
     <string name="info3">Plus de garantie en terme de sécurité physique</string>
     <string name="sign_up_fname">Nom:</string>
     <string name="sign_up_LName">Prenom:</string>
-    <string name="sign_up_phone">Telephone:</string>
+    <string name="sign_up_phone">User ID</string>
     <string name="sign_up_adress">Adresse:</string>
     <string name="info_perso">Informations personnelles</string>
     <string name="date_expiration">Date d\'expiration:</string>

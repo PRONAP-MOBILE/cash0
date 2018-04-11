@@ -53,7 +53,6 @@ public class DetailBuyActivity extends AppCompatActivity {
     public void init_views(){
 
         tvProductDetail = (TextView) findViewById(R.id.tvProductDetail);
-        tvProductName = (TextView) findViewById(R.id.tvProductName);
         tvProductPrice = (TextView) findViewById(R.id.tvProductPrice);
         btnValidate = (Button) findViewById(R.id.btnValidate);
         btnCancel = (Button) findViewById(R.id.btnCancel);
