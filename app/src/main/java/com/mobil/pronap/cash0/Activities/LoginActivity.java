@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -35,7 +34,6 @@ public class LoginActivity extends AppCompatActivity{
     private Button login;
     private View mProgressView;
     Toolbar customToolbar;
-    private TextView tvSignUp;
 
     //persistence
     SharedPreferences sharedPreferences ;
@@ -52,48 +50,33 @@ public class LoginActivity extends AppCompatActivity{
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        if(sharedPreferences.getString("infoUser", null)!=null){
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
-        }else{
-            //reference views
-            customToolbar = (Toolbar) findViewById(R.id.customToolbar);
-            setSupportActionBar(customToolbar);
+        //reference views
+        customToolbar = (Toolbar) findViewById(R.id.customToolbar);
+        setSupportActionBar(customToolbar);
 
-            // Set up the login form.
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // Set up the login form.
 
-            //get input text from user
-            phone = (TextInputLayout) findViewById(R.id.phoneNumber);
-            pass = (TextInputLayout) findViewById(R.id.password);
-            phoneUser = findViewById(R.id.edtphoneNumber);
-            passUser = findViewById(R.id.edtpassword);
-            tvSignUp = (TextView) findViewById(R.id.tvSignUp);
+        //get input text from user
+        phone = (TextInputLayout) findViewById(R.id.phoneNumber);
+        pass = (TextInputLayout) findViewById(R.id.password);
+        phoneUser = findViewById(R.id.edtphoneNumber);
+        passUser = findViewById(R.id.edtpassword);
 
-            login = findViewById(R.id.btLogin);
+        login = findViewById(R.id.btLogin);
 
 
-            login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    login(phoneUser.getText().toString(), passUser.getText().toString());
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                login(phoneUser.getText().toString(), passUser.getText().toString());
 
-                }
-            });
-
-            tvSignUp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(LoginActivity.this, SignupActivity.class);
-                    startActivity(i);
-                }
-            });
-
-        }
+            }
+        });
 
 
 
-
-       // mProgressView = findViewById(R.id.login_progress);
+        // mProgressView = findViewById(R.id.login_progress);
     }
 
 
@@ -113,23 +96,32 @@ public class LoginActivity extends AppCompatActivity{
             Intent i = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(i);
             //progressDialog.dismiss();
-        }else{
-            passUser.setError(getString(R.string.erreur_identifiant));
         }
 
     }
 
 
+
+
+
+
+
+
+
+
+
+
     @Override
     public void onBackPressed() {
-        this.finish();
+        super.onBackPressed();
+        finish();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                this.finish();
+                finish();
             default:
                 return super.onOptionsItemSelected(item);
         }
