@@ -39,6 +39,8 @@
     <string name="info_produit">Information sur le produit</string>
     <string name="quit_message">Pressez une nouvelle fois pour quitter</string>
     <string name="erreur_identifiant">No de téléphone ou mot de passe incorrect</string>
+    <string name="pin">PIN :</string>
+    <string name="envoyer">envoyer</string>
 
     <!-- dots inactive colors -->
     <color name="dot_inactive_screen1">#ffa000</color>
