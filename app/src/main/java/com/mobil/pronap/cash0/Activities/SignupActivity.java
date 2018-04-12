@@ -8,7 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.mobil.pronap.cash0.R;
 
@@ -16,16 +18,25 @@ public class SignupActivity extends AppCompatActivity {
 
 
     //Informations personnelles
-    AutoCompleteTextView tvFName;
-    AutoCompleteTextView tvLName;
     AutoCompleteTextView tvTel;
-    AutoCompleteTextView tvAdress;
+    EditText pass;
 
     //Informations bancaires
     Spinner spBankChooser;
     AutoCompleteTextView tvAccountNumber;
     AutoCompleteTextView tvCardNumber;
     AutoCompleteTextView tvCardDate;
+
+
+    //Information connection
+    String phone;
+    String password;
+
+    //Information about bank and card
+    String bank;
+    String cardNumber;
+    String account;
+
 
     Button btnRegister;
     Intent i;
@@ -40,11 +51,18 @@ public class SignupActivity extends AppCompatActivity {
 
         init_views();
 
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                i = new Intent(SignupActivity.this, MainActivity.class);
-                startActivity(i);
+                int val = checkAnswer();
+                if(val==0){
+                    Toast.makeText(getApplicationContext(), "Tous les champs doit être remplis", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                }
+
             }
         });
 
@@ -61,15 +79,27 @@ public class SignupActivity extends AppCompatActivity {
         }
     }
 
+    public int checkAnswer(){
+
+        int val = 0;
+
+        if(tvTel.getText().equals("") || pass.getText().equals("") || tvAccountNumber.getText().equals("") || tvCardNumber.getText().equals("") || spBankChooser.getSelectedItem().equals("choisir votre banque")){
+            val = 0;
+        }
+        else{
+            val = 1;
+        }
+
+        return  val;
+    }
+
+
 
     public void init_views(){
-        tvFName = (AutoCompleteTextView) findViewById(R.id.tvFName);
-        tvLName = (AutoCompleteTextView) findViewById(R.id.tvLName);
+
         tvTel = (AutoCompleteTextView) findViewById(R.id.tvTel);
-        tvAdress = (AutoCompleteTextView) findViewById(R.id.tvAdress);
         tvAccountNumber = (AutoCompleteTextView) findViewById(R.id.tvAccountNumber);
         tvCardNumber = (AutoCompleteTextView) findViewById(R.id.tvCardNumber);
-        tvCardDate = (AutoCompleteTextView) findViewById(R.id.tvCardDate);
         spBankChooser = (Spinner) findViewById(R.id.spBankChooser);
         btnRegister = (Button) findViewById(R.id.btnRegister);
 
