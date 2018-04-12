@@ -4,13 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.mobil.pronap.cash0.R;
 
@@ -18,20 +18,29 @@ public class SignupActivity extends AppCompatActivity {
 
 
     //Informations personnelles
-
-    EditText edtTel;
-    EditText edtpassword;
-    EditText edtCheckpassword;
-
+    AutoCompleteTextView tvTel;
+    EditText pass;
 
     //Informations bancaires
     Spinner spBankChooser;
     AutoCompleteTextView tvAccountNumber;
     AutoCompleteTextView tvCardNumber;
+    AutoCompleteTextView tvCardDate;
+
+
+    //Information connection
+    String phone;
+    String password;
+
+    //Information about bank and card
+    String bank;
+    String cardNumber;
+    String account;
+
 
     Button btnRegister;
     Intent i;
-    private boolean acceptable = false;
+
     Toolbar customToolbar;
 
 
@@ -42,51 +51,21 @@ public class SignupActivity extends AppCompatActivity {
 
         init_views();
 
+
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (checkValidity()) {
-                    i = new Intent(SignupActivity.this, MainActivity.class);
-                    startActivity(i);
+                int val = checkAnswer();
+                if(val==0){
+                    Toast.makeText(getApplicationContext(), "Tous les champs doit être remplis", Toast.LENGTH_SHORT).show();
                 }
+                else {
+
+                }
+
             }
         });
 
-
-    }
-
-    public boolean checkValidity() {
-
-        if (!TextUtils.isEmpty(edtTel.getText().toString())) {
-
-            if (!TextUtils.isEmpty(edtpassword.getText().toString())) {
-                if (!TextUtils.isEmpty(edtCheckpassword.getText().toString())) {
-                    if (!TextUtils.isEmpty(tvAccountNumber.getText().toString())) {
-                        if (!TextUtils.isEmpty(tvCardNumber.getText().toString())) {
-                            if (!TextUtils.equals(edtpassword.getText().toString(), edtCheckpassword.getText().toString())) {
-                                acceptable = true;
-                            } else {
-                                edtCheckpassword.setError("Vos mots de passe ne correspondent pas");
-                            }
-                        } else {
-                            tvCardNumber.setError("Champs requis");
-                        }
-                    } else {
-                        tvAccountNumber.setError("Champs requis");
-                    }
-                } else {
-                    edtCheckpassword.setError("Champs requis");
-                }
-            } else {
-                edtpassword.setError("Champs requis");
-            }
-
-        } else {
-            edtTel.setError("Champs requis");
-        }
-
-        return acceptable;
 
     }
 
@@ -100,15 +79,30 @@ public class SignupActivity extends AppCompatActivity {
         }
     }
 
+    public int checkAnswer(){
 
-    public void init_views() {
-        edtpassword = (EditText) findViewById(R.id.edtpassword);
-        edtCheckpassword = (EditText) findViewById(R.id.edtCheckpassword);
-        edtTel = (AutoCompleteTextView) findViewById(R.id.edtTel);
+        int val = 0;
+
+        if(tvTel.getText().equals("") || pass.getText().equals("") || tvAccountNumber.getText().equals("") || tvCardNumber.getText().equals("") || spBankChooser.getSelectedItem().equals("choisir votre banque")){
+            val = 0;
+        }
+        else{
+            val = 1;
+        }
+
+        return  val;
+    }
+
+
+
+    public void init_views(){
+
+        tvTel = (AutoCompleteTextView) findViewById(R.id.tvTel);
         tvAccountNumber = (AutoCompleteTextView) findViewById(R.id.tvAccountNumber);
         tvCardNumber = (AutoCompleteTextView) findViewById(R.id.tvCardNumber);
         spBankChooser = (Spinner) findViewById(R.id.spBankChooser);
         btnRegister = (Button) findViewById(R.id.btnRegister);
+
         customToolbar = (Toolbar) findViewById(R.id.customToolbar);
         setSupportActionBar(customToolbar);
 
@@ -120,6 +114,7 @@ public class SignupActivity extends AppCompatActivity {
     public void onBackPressed() {
         this.finish();
     }
+
 
 
 }

@@ -27,7 +27,7 @@
     <string name="info3">Plus de garantie en terme de sécurité physique</string>
     <string name="sign_up_fname">Nom:</string>
     <string name="sign_up_LName">Prenom:</string>
-    <string name="sign_up_phone">User ID</string>
+    <string name="sign_up_phone">Telephone</string>
     <string name="sign_up_adress">Adresse:</string>
     <string name="info_perso">Informations personnelles</string>
     <string name="date_expiration">Date d\'expiration:</string>

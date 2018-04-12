@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity{
         if(inputUser.equals("admin") & inputPass.equals("pass")){
             // user has been logged in
             User user = new User();
-            user.setUserName(inputUser);
+            //user.setUserName(inputUser);
             gson = new Gson();
             String json = gson.toJson(user);
             editor.putString("infoUser",json);

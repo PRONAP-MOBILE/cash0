@@ -11,9 +11,11 @@ import java.util.ArrayList;
  */
 
 public class Card {
+
     private int cardNumber;
     private int noCompt;
     private int routingNumberBank;
+    private String userdId;
 
     public int getCardNumber() {
         return cardNumber;
@@ -39,12 +41,21 @@ public class Card {
         this.routingNumberBank = routingNumberBank;
     }
 
+    public String getUserdId() {
+        return userdId;
+    }
+
+    public void setUserdId(String userdId) {
+        this.userdId = userdId;
+    }
+
 
     public Card(JSONObject jsonObject) {
         try {
             this.cardNumber = jsonObject.getInt("cardNumbder");
             this.noCompt = jsonObject.getInt("noCompt");
             this.routingNumberBank = jsonObject.getInt("routingNumberBank");
+            this.userdId = jsonObject.getString("userID");
 
         } catch (JSONException e) {
             e.printStackTrace();

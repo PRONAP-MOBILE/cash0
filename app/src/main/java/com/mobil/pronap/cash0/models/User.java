@@ -12,19 +12,9 @@ import java.util.ArrayList;
 
 public class User {
 
-    private String nif;
     private String phone;
-    private String email;
-    private String userName;
-    private int cardNumber;
+    private String password;
 
-    public String getNif() {
-        return nif;
-    }
-
-    public void setNif(String nif) {
-        this.nif = nif;
-    }
 
     public String getPhone() {
         return phone;
@@ -34,28 +24,12 @@ public class User {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public int getCardNumber() {
-        return cardNumber;
-    }
-
-    public void setCardNumber(int cardNumber) {
-        this.cardNumber = cardNumber;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public User(){
@@ -64,11 +38,8 @@ public class User {
 
     public User(JSONObject jsonObject) {
         try {
-            this.nif = jsonObject.getString("nif");
             this.phone = jsonObject.getString("phone");
-            this.email = jsonObject.getString("email");
-            this.userName = jsonObject.getString("userName");
-            this.cardNumber = jsonObject.getInt("cardNumber");
+            this.password = jsonObject.getString("password");
 
         } catch (JSONException e) {
             e.printStackTrace();
