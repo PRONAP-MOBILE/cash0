@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.mobil.pronap.cash0.Dialog.Dialog_Regulator;
 import com.mobil.pronap.cash0.Fragments.MainScreen;
 import com.mobil.pronap.cash0.Fragments.Settings;
 import com.mobil.pronap.cash0.Fragments.UserInfo;
@@ -149,6 +150,10 @@ public class DrawerActivity extends AppCompatActivity
             return true;
         }
 
+        if (id == R.id.regulateur) {
+
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -170,6 +175,13 @@ public class DrawerActivity extends AppCompatActivity
             case R.id.profil:
                 //fragmentClass = Profil.class;
                 fragmentClass = UserInfo.class;
+                break;
+            case R.id.regulateur:
+                //fragmentClass = Profil.class;
+                FragmentManager fm = getSupportFragmentManager();
+                Dialog_Regulator alertDialog = Dialog_Regulator.newInstance("Limite dépense");
+                alertDialog.show(fm, "alert dialog");
+
                 break;
 
             default:
