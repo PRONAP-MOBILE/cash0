@@ -80,5 +80,4 @@
     <string name="same_password_error">Passwords must be the same</string>
     <string name="card_digits_error">The number of ccharacters is incorrect</string>
     <string name="creating_account">In progress...</string>
-    <string name="sign_up">Sign Up</string>
 </resources>

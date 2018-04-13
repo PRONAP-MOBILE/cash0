@@ -101,7 +101,7 @@ public class DetailBuyActivity extends AppCompatActivity {
     }
 
     public void returnHome(){
-        i = new Intent(DetailBuyActivity.this, MainActivity.class);
+        i = new Intent(DetailBuyActivity.this, DrawerActivity.class);
         startActivity(i);
     }
 
