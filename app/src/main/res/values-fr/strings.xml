@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">Cash 0</string>
+    <string name="splash_instruction">Chargement...</string>
+    <string name="link_profil">Link_Profil</string>
+    <string name="buy_button_text">Acheter</string>
+    <string name="sell_button_text">Vendre</string>
+    <string name="forgot_account">Forgot User ID or Password</string>
+    <string name="create_account_text">Creer un Compte</string>
+    <string name="user_profil_img">user_profil_img</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Connection</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">email non valide</string>
+    <string name="error_invalid_password">Mot de passe trop court</string>
+    <string name="error_incorrect_password">Mot de passe incorrecte</string>
+    <string name="error_field_required">Ce champs est requis</string>
+    <string name="permission_rationale">"Nous devons avoir la permission d'utiliser votre liste de contact"
+    </string>
+    <string name="todo">TODO</string>
+    <string name="info1">Plus besoin de liquide pour fonctionner, votre carte est votre billet</string>
+    <string name="info2">Utilisez davantage votre carte pour echanger, vente rapide et achat rapide via votre smartphone</string>
+    <string name="info3">Plus de garantie en terme de sécurité physique</string>
+    <string name="sign_up_fname">Nom:</string>
+    <string name="sign_up_LName">Prenom:</string>
+    <string name="sign_up_phone">Telephone</string>
+    <string name="sign_up_adress">Adresse:</string>
+    <string name="info_perso">Informations personnelles</string>
+    <string name="date_expiration">Date d\'expiration:</string>
+    <string name="no_carte">No de carte:</string>
+    <string name="no_compte">No de compte:</string>
+    <string name="info_bancaires">Informations Bancaires</string>
+    <string name="btn_scan_text">Scanner</string>
+    <string name="generer_qr_text">Generer le code de vente</string>
+    <string name="info_produit">Information sur le produit</string>
+    <string name="quit_message">Pressez une nouvelle fois pour quitter</string>
+    <string name="erreur_identifiant">No de téléphone ou mot de passe incorrect</string>
+    <string name="pin">PIN :</string>
+    <string name="envoyer">envoyer</string>
+
+    <!-- dots inactive colors -->
+    <color name="dot_inactive_screen1">#ffa000</color>
+    <color name="dot_inactive_screen2">#008c57</color>
+    <color name="dot_inactive_screen3">#0e1e49</color>
+    <!-- dots active colors -->
+    <color name="dot_active_screen1">#f9c772</color>
+    <color name="dot_active_screen2">#74f7c5</color>
+    <color name="dot_active_screen3">#3a67e0</color>
+    <array name="array_dot_active">
+        <item>@color/dot_active_screen1</item>
+        <item>@color/dot_active_screen2</item>
+        <item>@color/dot_active_screen3</item>
+    </array>
+    <array name="array_dot_inactive">
+        <item>@color/dot_inactive_screen1</item>
+        <item>@color/dot_inactive_screen2</item>
+        <item>@color/dot_inactive_screen3</item>
+    </array>
+    <string name="title_activity_drawer">Acceuil</string>
+
+    <string name="navigation_drawer_open">Ouvrir le menu de navigation</string>
+    <string name="navigation_drawer_close">Fermer le menu de navigation</string>
+
+    <string name="action_settings">Parametre</string>
+    <string name="logout">Deconnexion</string>
+    <string name="lang">Langue :</string>
+    <string name="valider">Valider</string>
+    <string name="mes_transactions">Mes transactions</string>
+    <string name="acceuil">Acceuil</string>
+    <string name="regulateur">Regulateur</string>
+    <string name="mon_compte">Mon compte</string>
+    <string name="communicate">Communicate</string>
+    <string name="partager">Partager</string>
+</resources>

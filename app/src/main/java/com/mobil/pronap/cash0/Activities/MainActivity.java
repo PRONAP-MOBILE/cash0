@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else{
             Toast.makeText(getApplicationContext(), "No BarCode", Toast.LENGTH_SHORT).show();
-            i = new Intent(MainActivity.this, MainActivity.class);
+            i = new Intent(MainActivity.this, DrawerActivity.class);
             startActivity(i);
         }
 

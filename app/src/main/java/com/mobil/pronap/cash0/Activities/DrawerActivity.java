@@ -27,6 +27,7 @@ import com.google.gson.Gson;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 import com.mobil.pronap.cash0.Fragments.MainScreen;
+import com.mobil.pronap.cash0.Fragments.Settings;
 import com.mobil.pronap.cash0.Fragments.UserInfo;
 import com.mobil.pronap.cash0.Fragments.UserTransactions;
 import com.mobil.pronap.cash0.R;
@@ -36,6 +37,7 @@ public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
+    public static String lang = "fr";
     public FrameLayout container;
     public DrawerLayout drawer;
     public NavigationView navigationView;
@@ -50,6 +52,7 @@ public class DrawerActivity extends AppCompatActivity
     FragmentTransaction fts;
     Class fragmentClass;
     Gson gson;
+    Settings settings;
 
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor ;
@@ -63,7 +66,7 @@ public class DrawerActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         container = (FrameLayout) findViewById(R.id.flContent);
-
+        settings = new Settings();
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
@@ -138,9 +141,11 @@ public class DrawerActivity extends AppCompatActivity
             editor.apply();
             i = new Intent(DrawerActivity.this, LoginActivity.class);
             startActivity(i);
+            return true;
         }
 
         if (id == R.id.action_settings) {
+            settings.show(fragmentManager, "SETTINGS");
             return true;
         }
 
