@@ -12,32 +12,32 @@ import java.util.ArrayList;
 
 public class Card {
 
-    private int cardNumber;
-    private int noCompt;
-    private int routingNumberBank;
+    private String cardNumber;
+    private String noCompt;
+    private String routingNumberBank;
     private String userdId;
 
-    public int getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(int cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
-    public int getNoCompt() {
+    public String getNoCompt() {
         return noCompt;
     }
 
-    public void setNoCompt(int noCompt) {
+    public void setNoCompt(String noCompt) {
         this.noCompt = noCompt;
     }
 
-    public int getRoutingNumberBank() {
+    public String getRoutingNumberBank() {
         return routingNumberBank;
     }
 
-    public void setRoutingNumberBank(int routingNumberBank) {
+    public void setRoutingNumberBank(String routingNumberBank) {
         this.routingNumberBank = routingNumberBank;
     }
 
@@ -57,9 +57,9 @@ public class Card {
 
     public Card(JSONObject jsonObject) {
         try {
-            this.cardNumber = jsonObject.getInt("cardNumbder");
-            this.noCompt = jsonObject.getInt("noCompt");
-            this.routingNumberBank = jsonObject.getInt("routingNumberBank");
+            this.cardNumber = jsonObject.getString("cardNumbder");
+            this.noCompt = jsonObject.getString("noCompt");
+            this.routingNumberBank = jsonObject.getString("routingNumberBank");
             this.userdId = jsonObject.getString("userID");
 
         } catch (JSONException e) {

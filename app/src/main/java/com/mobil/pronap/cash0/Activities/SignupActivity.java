@@ -87,15 +87,15 @@ public class SignupActivity extends AppCompatActivity {
                 if(validationCheck()){
                     //get user info
                     User user = new User();
-                    user.setPhone(tvTel.getText().toString());
-                    user.setPassword(pass.getText().toString());
+                    user.setPhone(edtTel.getText().toString());
+                    user.setPassword(edtPassword.getText().toString());
 
                     //get card info
                     Card userCard = new Card();
-                    userCard.setRoutingNumberBank(00111011);
-                    userCard.setNoCompt(Integer.parseInt(tvAccountNumber.getText().toString()));
-                    userCard.setUserdId(tvTel.getText().toString());
-                    userCard.setCardNumber(Integer.parseInt(tvCardNumber.getText().toString()));
+                    userCard.setRoutingNumberBank("00111011");
+                    userCard.setNoCompt(tvAccountNumber.getText().toString());
+                    userCard.setUserdId(edtTel.getText().toString());
+                    userCard.setCardNumber(tvCardNumber.getText().toString());
 
 
                     gsonUser = new Gson();
