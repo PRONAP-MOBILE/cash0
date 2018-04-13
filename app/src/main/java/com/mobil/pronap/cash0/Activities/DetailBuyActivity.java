@@ -122,7 +122,7 @@ public class DetailBuyActivity extends AppCompatActivity {
     }
 
     public  void onReceivePin(int pin){
-        alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+        alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setMessage("Validation...");
         alertDialog.show();
 

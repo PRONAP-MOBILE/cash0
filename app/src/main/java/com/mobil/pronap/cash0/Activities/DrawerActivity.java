@@ -1,5 +1,8 @@
 package com.mobil.pronap.cash0.Activities;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,8 +21,16 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
+import com.mobil.pronap.cash0.Fragments.MainScreen;
+import com.mobil.pronap.cash0.Fragments.UserInfo;
+import com.mobil.pronap.cash0.Fragments.UserTransactions;
 import com.mobil.pronap.cash0.R;
+import com.mobil.pronap.cash0.models.User;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,6 +44,15 @@ public class DrawerActivity extends AppCompatActivity
     ImageView ivLogoDrawer;
     TextView tvTitleDrawer;
     TextView tvDetailDrawer;
+    Intent i;
+    Fragment fragment = null;
+    FragmentManager fragmentManager;
+    FragmentTransaction fts;
+    Class fragmentClass;
+    Gson gson;
+
+    SharedPreferences sharedPreferences ;
+    SharedPreferences.Editor editor ;
 
 
     @Override
@@ -41,15 +61,32 @@ public class DrawerActivity extends AppCompatActivity
         setContentView(R.layout.activity_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         container = (FrameLayout) findViewById(R.id.flContent);
+
+        sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        toolbar.setTitle("Acceuil");
+
+        fragmentClass = MainScreen.class;
+
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        fragmentManager = getSupportFragmentManager();
+        //fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        fts = getSupportFragmentManager().beginTransaction();
+        fts.setCustomAnimations(R.anim.right, R.anim.left);
+        //fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        fts.replace(R.id.flContent, fragment).commit();
+
         fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+        fab.setVisibility(View.GONE);
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -65,6 +102,8 @@ public class DrawerActivity extends AppCompatActivity
         tvDetailDrawer = (TextView) hView.findViewById(R.id.tvDetailDrawer);
         tvTitleDrawer = (TextView) hView.findViewById(R.id.tvTitleDrawer);
         ivLogoDrawer = (ImageView) hView.findViewById(R.id.ivLogoDrawer);
+
+
 
 
     }
@@ -94,6 +133,13 @@ public class DrawerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        if(id == R.id.action_logout){
+            editor.putString("infoUser", null);
+            editor.apply();
+            i = new Intent(DrawerActivity.this, LoginActivity.class);
+            startActivity(i);
+        }
+
         if (id == R.id.action_settings) {
             return true;
         }
@@ -106,19 +152,19 @@ public class DrawerActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
 
-        Fragment fragment = null;
-        Class fragmentClass;
+        fragment = null;
+        //Class fragmentClass;
         int id = item.getItemId();
         switch(item.getItemId()) {
             case R.id.acceuil:
-                fragmentClass = null;
+                fragmentClass = MainScreen.class;
                 break;
             case R.id.transactions:
-                fragmentClass = null;
+                fragmentClass = UserTransactions.class;
                 break;
             case R.id.profil:
                 //fragmentClass = Profil.class;
-                fragmentClass = null;
+                fragmentClass = UserInfo.class;
                 break;
 
             default:
@@ -133,9 +179,9 @@ public class DrawerActivity extends AppCompatActivity
         }
 
         // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager = getSupportFragmentManager();
         //fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
-        FragmentTransaction fts = getSupportFragmentManager().beginTransaction();
+        fts = getSupportFragmentManager().beginTransaction();
         fts.setCustomAnimations(R.anim.right, R.anim.left);
         //fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
         fts.replace(R.id.flContent, fragment).commit();
@@ -146,6 +192,37 @@ public class DrawerActivity extends AppCompatActivity
         drawer.closeDrawers();
         return true;
 
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() == null) {
+                //Toast.makeText(getApplicationContext(), "No message", Toast.LENGTH_SHORT).show();
+                //should pass result to intent
+                finish();
+                i = new Intent(DrawerActivity.this, DrawerActivity.class);
+                startActivity(i);
+
+            } else {
+                Toast.makeText(getApplicationContext(), result.getContents().toString(), Toast.LENGTH_SHORT).show();
+                //should pass result to intent
+
+                //Passing data from the QRcode to the activity for buy
+                String information = result.getContents().toString();
+
+                i = new Intent(DrawerActivity.this, DetailBuyActivity.class);
+                i.putExtra("information", information);
+                startActivity(i);
+            }
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No BarCode", Toast.LENGTH_SHORT).show();
+            i = new Intent(DrawerActivity.this, DrawerActivity.class);
+            startActivity(i);
+        }
     }
 
 

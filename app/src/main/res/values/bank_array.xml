@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="bank_array">
+        <item>Choisir banque</item>
         <item>BNC</item>
         <item>BUH</item>
         <item>Sogebank</item>

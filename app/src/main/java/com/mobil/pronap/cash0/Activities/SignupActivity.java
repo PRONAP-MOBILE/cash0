@@ -18,7 +18,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
     //Informations personnelles
-    AutoCompleteTextView tvTel;
+    EditText tvTel;
     EditText pass;
 
     //Informations bancaires
@@ -83,7 +83,7 @@ public class SignupActivity extends AppCompatActivity {
 
         int val = 0;
 
-        if(tvTel.getText().equals("") || pass.getText().equals("") || tvAccountNumber.getText().equals("") || tvCardNumber.getText().equals("") || spBankChooser.getSelectedItem().equals("choisir votre banque")){
+        if(tvTel.getText().equals("") || pass.getText().equals("") || tvAccountNumber.getText().equals("") || tvCardNumber.getText().equals("") || spBankChooser.getSelectedItem().equals("Choisir banque")){
             val = 0;
         }
         else{
@@ -97,7 +97,7 @@ public class SignupActivity extends AppCompatActivity {
 
     public void init_views(){
 
-        tvTel = (AutoCompleteTextView) findViewById(R.id.tvTel);
+        tvTel =  findViewById(R.id.edtTel);
         tvAccountNumber = (AutoCompleteTextView) findViewById(R.id.tvAccountNumber);
         tvCardNumber = (AutoCompleteTextView) findViewById(R.id.tvCardNumber);
         spBankChooser = (Spinner) findViewById(R.id.spBankChooser);
