@@ -41,6 +41,11 @@ public class Card {
         this.routingNumberBank = routingNumberBank;
     }
 
+    public Card(){
+
+    }
+
+
     public String getUserdId() {
         return userdId;
     }

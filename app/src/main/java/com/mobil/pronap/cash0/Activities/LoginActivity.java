@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity{
     // UI references.
     private TextInputLayout phone;
     private TextInputLayout pass;
+    TextView newUser;
     private EditText phoneUser;
     private EditText passUser;
     private Button login;
@@ -43,6 +45,7 @@ public class LoginActivity extends AppCompatActivity{
     SharedPreferences.Editor editor ;
     ProgressDialog progressDialog;
     Gson gson;
+    Gson gsonRegistered;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class LoginActivity extends AppCompatActivity{
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
+
         try{
             langPref = sharedPreferences.getString("lang", "fr");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
@@ -61,6 +65,9 @@ public class LoginActivity extends AppCompatActivity{
         }catch (Exception e){
             e.printStackTrace();
         }
+
+
+
 
         if(sharedPreferences.getString("infoUser", null)!=null){
             //startActivity(new Intent(LoginActivity.this, MainActivity.class));
@@ -90,7 +97,17 @@ public class LoginActivity extends AppCompatActivity{
                 }
             });
 
+
         }
+
+        newUser = findViewById(R.id.tvSignup);
+        newUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginActivity.this, SignupActivity.class );
+                startActivity(i);
+            }
+        });
 
 
             // mProgressView = findViewById(R.id.login_progress);
@@ -101,19 +118,29 @@ public class LoginActivity extends AppCompatActivity{
     private void login(String inputUser, String inputPass) {
         // do not forget to call Backendless.initApp in the app initialization code
 
-        if(inputUser.equals("admin") & inputPass.equals("pass")){
-            // user has been logged in
-            User user = new User();
-            //user.setUserName(inputUser);
-            gson = new Gson();
-            String json = gson.toJson(user);
-            editor.putString("infoUser",json);
-            editor.putString("lang", "fr");
-            editor.apply();
 
-            Intent i = new Intent(LoginActivity.this, DrawerActivity.class);
-            startActivity(i);
-            //progressDialog.dismiss();
+        String register = sharedPreferences.getString("userRegister", null);
+        gsonRegistered = new Gson();
+        User registeredUser = gsonRegistered.fromJson(register, User.class);
+
+        if(!register.equals("")){
+            if(inputUser.equals(registeredUser.getPhone().toString()) & inputPass.equals(registeredUser.getPassword().toString())){
+                // user has been logged in
+                User user = new User();
+                user.setPhone(inputUser);
+                gson = new Gson();
+                String json = gson.toJson(user);
+                editor.putString("infoUser",json);
+                editor.putString("lang", "fr");
+                editor.apply();
+
+                Intent i = new Intent(LoginActivity.this, DrawerActivity.class);
+                startActivity(i);
+                //progressDialog.dismiss();
+            }
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "Verifiez vos saisie", Toast.LENGTH_SHORT);
         }
 
     }

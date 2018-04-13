@@ -1,6 +1,8 @@
 package com.mobil.pronap.cash0.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,13 +29,13 @@ public class DetailSellActivity extends AppCompatActivity {
     Button btnGenerateQR;
     Toolbar customToolbar;
     Intent i;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_sell);
         init_views();
-
 
         btnGenerateQR.setOnClickListener(new View.OnClickListener() {
             @Override

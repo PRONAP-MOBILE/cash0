@@ -97,6 +97,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/tvSignup"
         android:text="Sign Up"
+        android:clickable="true"
         android:layout_below="@+id/btnLoginn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
