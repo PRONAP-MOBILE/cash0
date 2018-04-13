@@ -75,4 +75,10 @@
     <string name="mon_compte">My account</string>
     <string name="communicate">Communicate</string>
     <string name="partager">Share</string>
+    <string name="test">dvdv</string>
+    <string name="incorrect_field">this field is incorrect</string>
+    <string name="same_password_error">Passwords must be the same</string>
+    <string name="card_digits_error">The number of ccharacters is incorrect</string>
+    <string name="creating_account">In progress...</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

@@ -1,11 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="lang">Langue :</string>
-    <string name="valider">Valider</string>
+    <string name="app_name">Cash 0</string>
+    <string name="splash_instruction">Loading...</string>
+    <string name="link_profil">Link_Profil</string>
+    <string name="buy_button_text">Buy</string>
+    <string name="sell_button_text">Sell</string>
+    <string name="forgot_account">Forgot User ID or Password</string>
+    <string name="create_account_text">Sign in</string>
+    <string name="user_profil_img">user_profil_img</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Connection</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">email invalid</string>
+    <string name="error_invalid_password">Pasword is too short</string>
+    <string name="error_incorrect_password">Password incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="todo">TODO</string>
+    <string name="info1">No need for money to operate, your phone is your wallet</string>
+    <string name="info2">Use your card more to exchange, fast sale and fast purchse via your smartphone</string>
+    <string name="info3">safer for you</string>
+    <string name="sign_up_fname">Last name:</string>
+    <string name="sign_up_LName">First name:</string>
+    <string name="sign_up_phone">Phone: </string>
+    <string name="sign_up_adress">Adress:</string>
+    <string name="info_perso">Personnal Information </string>
+    <string name="date_expiration">Expiration date:</string>
+    <string name="no_carte">Card number:</string>
+    <string name="no_compte">Account number:</string>
+    <string name="info_bancaires">Bank Information</string>
+    <string name="btn_scan_text">Scan</string>
+    <string name="generer_qr_text">Generate a QR code</string>
+    <string name="info_produit">Product information</string>
+    <string name="quit_message">Press again to exit</string>
+    <string name="erreur_identifiant">Phone number or password incorrect</string>
+    <string name="pin">PIN :</string>
+    <string name="envoyer">SEND</string>
+
+    <!-- dots inactive colors -->
+    <color name="dot_inactive_screen1">#ffa000</color>
+    <color name="dot_inactive_screen2">#008c57</color>
+    <color name="dot_inactive_screen3">#0e1e49</color>
+    <!-- dots active colors -->
+    <color name="dot_active_screen1">#f9c772</color>
+    <color name="dot_active_screen2">#74f7c5</color>
+    <color name="dot_active_screen3">#3a67e0</color>
+    <array name="array_dot_active">
+        <item>@color/dot_active_screen1</item>
+        <item>@color/dot_active_screen2</item>
+        <item>@color/dot_active_screen3</item>
+    </array>
+    <array name="array_dot_inactive">
+        <item>@color/dot_inactive_screen1</item>
+        <item>@color/dot_inactive_screen2</item>
+        <item>@color/dot_inactive_screen3</item>
+    </array>
+    <string name="title_activity_drawer">Home</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Parametre</string>
+    <string name="logout">Disconnect</string>
+    <string name="lang">Language :</string>
+    <string name="valider">Validate</string>
     <string name="mes_transactions">Mes transactions</string>
-    <string name="acceuil">Acceuil</string>
-    <string name="regulateur">Regulateur</string>
-    <string name="mon_compte">Mon compte</string>
+    <string name="acceuil">Home</string>
+    <string name="regulateur">Regulator</string>
+    <string name="mon_compte">My account</string>
     <string name="communicate">Communicate</string>
-    <string name="partager">Partager</string>
+    <string name="partager">Share</string>
+    <string name="test">dvdv</string>
+    <string name="incorrect_field">this field is incorrect</string>
+    <string name="same_password_error">Passwords must be the same</string>
+    <string name="card_digits_error">The number of ccharacters is incorrect</string>
+    <string name="creating_account">In progress...</string>
 </resources>
