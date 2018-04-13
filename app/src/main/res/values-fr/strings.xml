@@ -7,7 +7,11 @@
     <string name="forgot_account">Identifiant oublie</string>
     <string name="create_account_text">Creer un Compte</string>
     <string name="user_profil_img">user_profil_img</string>
+    <string name="limitSpend">Alerte depense</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="prixLimit">Ex:10000</string>
+    <string name="btnLimit">Sauvegarder</string>
+
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
