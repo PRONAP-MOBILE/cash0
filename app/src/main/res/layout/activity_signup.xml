@@ -189,8 +189,7 @@
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/white"
                 android:textSize="17sp"
-                tools:ignore="InvalidId"
-                android:background="@drawable/btnshape"/>
+                tools:ignore="InvalidId" />
 
         </LinearLayout>
 
