@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -123,7 +124,7 @@ public class LoginActivity extends AppCompatActivity{
         gsonRegistered = new Gson();
         User registeredUser = gsonRegistered.fromJson(register, User.class);
 
-        if(!register.equals("")){
+        if(!TextUtils.isEmpty(passUser.getText().toString()) && !TextUtils.isEmpty(phoneUser.getText().toString())){
             if(inputUser.equals(registeredUser.getPhone().toString()) & inputPass.equals(registeredUser.getPassword().toString())){
                 // user has been logged in
                 User user = new User();
@@ -140,7 +141,8 @@ public class LoginActivity extends AppCompatActivity{
             }
         }
         else{
-            Toast.makeText(getApplicationContext(), "Verifiez vos saisie", Toast.LENGTH_SHORT);
+            //Toast.makeText(getApplicationContext(), "Verifiez vos saisie", Toast.LENGTH_SHORT);
+            passUser.setError("Verifiez vos saisie");
         }
 
     }
