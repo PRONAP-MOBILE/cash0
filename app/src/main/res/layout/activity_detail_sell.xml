@@ -18,24 +18,32 @@
         app:titleTextColor="@android:color/white">
     </android.support.v7.widget.Toolbar>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="30dp"
+            >
 
 
 
-                <EditText
-                    android:id="@+id/etProductPrice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:inputType="number"
-                    android:digits="1234567890."
-                    android:hint="Prix en gourdes"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="50sp" />
+            <EditText
+                android:id="@+id/etProductPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:inputType="number"
+                android:digits="1234567890."
+                android:hint="Prix en gourdes"
+                android:textColor="@android:color/holo_red_light"
+                android:textSize="40sp" />
 
             <EditText
                 android:id="@+id/etProductDetail"
@@ -51,7 +59,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_marginTop="30dp">
 
 
             <Button
@@ -64,6 +73,9 @@
                 android:textSize="17sp" />
 
         </LinearLayout>
+
+
+    </LinearLayout>
 
 
 </LinearLayout>
