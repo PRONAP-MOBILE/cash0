@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity{
         User registeredUser = gsonRegistered.fromJson(register, User.class);
 
         if(!register.equals("")){
-            if(inputUser.equals(registeredUser.getPhone().toString()) & inputPass.equals(registeredUser.getPhone().toString())){
+            if(inputUser.equals(registeredUser.getPhone().toString()) & inputPass.equals(registeredUser.getPassword().toString())){
                 // user has been logged in
                 User user = new User();
                 user.setPhone(inputUser);
@@ -126,8 +126,6 @@ public class LoginActivity extends AppCompatActivity{
         else{
             Toast.makeText(getApplicationContext(), "Verifiez vos saisie", Toast.LENGTH_SHORT);
         }
-
-
 
     }
 
