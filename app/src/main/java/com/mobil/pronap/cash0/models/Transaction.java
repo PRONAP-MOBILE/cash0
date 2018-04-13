@@ -12,14 +12,15 @@ import java.util.ArrayList;
 
 public class Transaction {
 
-    private int prix;
+    private String prix;
     private String description;
+    String dateTrans;
 
-    public int getPrix() {
+    public String getPrix() {
         return prix;
     }
 
-    public void setPrix(int prix) {
+    public void setPrix(String prix) {
         this.prix = prix;
     }
 
@@ -31,10 +32,22 @@ public class Transaction {
         this.description = description;
     }
 
+    public String getDateTrans() {
+        return dateTrans;
+    }
+
+    public void setDateTrans  (String dateTrans) {
+        this.dateTrans = dateTrans;
+    }
+
+    public Transaction(){
+
+    }
+
 
     public Transaction(JSONObject jsonObject) {
         try {
-            this.prix = jsonObject.getInt("prix");
+            this.prix = jsonObject.getString("prix");
             this.description = jsonObject.getString("description");
 
         } catch (JSONException e) {

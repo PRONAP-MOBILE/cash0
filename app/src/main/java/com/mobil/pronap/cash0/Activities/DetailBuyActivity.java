@@ -1,6 +1,8 @@
 package com.mobil.pronap.cash0.Activities;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -13,9 +15,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.mobil.pronap.cash0.Fragments.Pinvalidation;
 import com.mobil.pronap.cash0.R;
 import com.mobil.pronap.cash0.Utils.SmsValidation;
+import com.mobil.pronap.cash0.models.Transaction;
+import com.mobil.pronap.cash0.models.User;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class DetailBuyActivity extends AppCompatActivity {
 
@@ -29,6 +37,14 @@ public class DetailBuyActivity extends AppCompatActivity {
     Pinvalidation pinvalidation;
     AlertDialog alertDialog;
 
+    //Variables to get object
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    String listTransaction;
+    Gson gson;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +53,9 @@ public class DetailBuyActivity extends AppCompatActivity {
 
         fm = getSupportFragmentManager();
         init_views();
+
+        sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
 
         //Get information from the scanning qr Code
         //Initialize view with correct info
@@ -56,6 +75,26 @@ public class DetailBuyActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 pinvalidation.show(fm, "PIN");
+
+                //Create the transaction object
+                Transaction trans = new Transaction();
+                trans.setPrix(tvProductPrice.getText().toString());
+                trans.setDescription(tvProductDetail.getText().toString());
+                trans.setDateTrans(new Date().toString());
+
+                listTransaction = sharedPreferences.getString("listTransaction", null);
+                gson = new Gson();
+                ArrayList<Transaction> list  = gson.fromJson(listTransaction, ArrayList.class);
+
+
+                list.add(trans);
+                String jsonList = new Gson().toJson(list);
+                editor.putString("listTrans",jsonList);
+
+                //Toast.makeText(getApplicationContext(), listTrans.toString(), Toast.LENGTH_SHORT).show();
+
+                editor.commit();
+
             }
         });
 
@@ -65,8 +104,6 @@ public class DetailBuyActivity extends AppCompatActivity {
                 returnHome();
             }
         });
-
-
 
 
     }

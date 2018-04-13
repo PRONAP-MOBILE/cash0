@@ -2,6 +2,7 @@ package com.mobil.pronap.cash0.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.view.PagerAdapter;
@@ -18,8 +19,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.mobil.pronap.cash0.R;
 import com.mobil.pronap.cash0.Utils.PreferenceManager;
+import com.mobil.pronap.cash0.models.Transaction;
+
+import java.util.ArrayList;
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -30,6 +35,13 @@ public class WelcomeActivity extends AppCompatActivity {
     private int[] layouts;
     private Button btnSkip, btnNext;
     private PreferenceManager prefManager;
+
+    //Variables for persistence
+    SharedPreferences sharedPreferences ;
+    SharedPreferences.Editor editor ;
+    Gson gson;
+    String list;
+    ArrayList<Transaction> listTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +60,18 @@ public class WelcomeActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_welcome);
+
+        //Store transaction
+        sharedPreferences = getSharedPreferences("PreferencesTAG",Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+
+        //Create persistence
+        gson = new Gson();
+        listTransaction = new ArrayList<>();
+        list = gson.toJson(listTransaction);
+        editor.putString("listTransaction", list);
+        editor.commit();
+
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         dotsLayout = (LinearLayout) findViewById(R.id.layoutDots);
