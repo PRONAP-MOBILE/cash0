@@ -1,11 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@android:color/white"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@android:color/white"
+        android:layout_below="@id/customToolbar"
+        android:id="@+id/mainInfo">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@string/user_profil_img"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/ivProfil"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tvFName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/ivProfil"
+            android:layout_alignLeft="@+id/tvLName"
+            android:layout_alignStart="@+id/tvLName"
+            android:textColor="@android:color/black"
+            android:text="Prenom" />
+
+        <TextView
+            android:id="@+id/tvLName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/ivProfil"
+            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
+            android:layout_toEndOf="@+id/ivProfil"
+            android:layout_toRightOf="@+id/ivProfil"
+            android:textColor="@android:color/black"
+            android:text="Nom" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tvFName"
+            android:layout_alignStart="@+id/tvFName"
+            android:layout_below="@+id/tvFName"
+            android:layout_marginTop="11dp"
+            android:textColor="@android:color/black"
+            android:text="Date d'inscription" />
+
+        <ImageButton
+            android:id="@+id/ibSettings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/white"
+            app:srcCompat="@drawable/ic_settings" />
+
+    </RelativeLayout>
 
 
     <!-- Textviews Should be designed-->

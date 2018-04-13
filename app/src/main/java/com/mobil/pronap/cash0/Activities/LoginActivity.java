@@ -51,7 +51,8 @@ public class LoginActivity extends AppCompatActivity{
         editor = sharedPreferences.edit();
 
         if(sharedPreferences.getString("infoUser", null)!=null){
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            //startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, DrawerActivity.class));
             finish();
         }else {
             //reference views
@@ -97,7 +98,7 @@ public class LoginActivity extends AppCompatActivity{
             editor.putString("infoUser",json);
             editor.apply();
 
-            Intent i = new Intent(LoginActivity.this, MainActivity.class);
+            Intent i = new Intent(LoginActivity.this, DrawerActivity.class);
             startActivity(i);
             //progressDialog.dismiss();
         }
@@ -107,8 +108,7 @@ public class LoginActivity extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        finish();
+        moveTaskToBack(true);
     }
 
     @Override

@@ -29,10 +29,6 @@ public class Pinvalidation extends DialogFragment {
     DetailBuyActivity detailBuyActivity;
 
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Nullable
     @Override
@@ -49,8 +45,8 @@ public class Pinvalidation extends DialogFragment {
         btnPin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(TextUtils.isEmpty(etPin.getText().toString())){
-                    if(etPin.getText().toString().length() != 4){
+                if(!TextUtils.isEmpty(etPin.getText().toString())){
+                    if(etPin.getText().toString().length() == 4){
 
                         if(Integer.parseInt(etPin.getText().toString()) == 1234){
                             detailBuyActivity.onReceivePin(Integer.parseInt(etPin.getText().toString()));
