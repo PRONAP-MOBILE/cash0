@@ -29,6 +29,8 @@ public class UserTransactions extends Fragment {
 
         View v = inflater.inflate(R.layout.user_transaction, container, false);
 
+        
+
 
         return v;
 
