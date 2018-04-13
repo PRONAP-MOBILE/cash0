@@ -39,7 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public long insertDetail ( String detail,Double price){
+    public long insertDetail ( String detail,String status,Double price){
 
         // get writable database as we want to write data
         SQLiteDatabase db = this.getWritableDatabase();
@@ -49,6 +49,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // `id` and `timestamp` will be inserted automatically.
         // no need to add them
         values.put(Transaction.COLUMN_DETAIL,detail);
+        values.put(Transaction.COLUMN_STATUS,status);
         values.put(Transaction.COLUMN_PRICE,price);
 
         // insert row
@@ -66,7 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(Transaction.TABLE_NAME,
-                new String[]{Transaction.COLUMN_ID, Transaction.COLUMN_DETAIL,Transaction.COLUMN_PRICE, Transaction.COLUMN_TIMESTAMP},
+                new String[]{Transaction.COLUMN_ID, Transaction.COLUMN_DETAIL,Transaction.COLUMN_STATUS,Transaction.COLUMN_PRICE, Transaction.COLUMN_TIMESTAMP},
                 Transaction.COLUMN_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
 
@@ -77,6 +78,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Transaction transaction = new Transaction(
                 cursor.getInt(cursor.getColumnIndex(Transaction.COLUMN_ID)),
                 cursor.getString(cursor.getColumnIndex(Transaction.COLUMN_DETAIL)),
+                cursor.getString(cursor.getColumnIndex(Transaction.COLUMN_STATUS)),
                 cursor.getString(cursor.getColumnIndex(Transaction.COLUMN_TIMESTAMP)),
                 cursor.getDouble(cursor.getColumnIndex(Transaction.COLUMN_PRICE)));
 
@@ -102,6 +104,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 Transaction transaction = new Transaction();
                 transaction.setId(cursor.getInt(cursor.getColumnIndex(Transaction.COLUMN_ID)));
                 transaction.setDetail(cursor.getString(cursor.getColumnIndex(Transaction.COLUMN_DETAIL)));
+                transaction.setDetail(cursor.getString(cursor.getColumnIndex(Transaction.COLUMN_STATUS)));
                 transaction.setPrice(cursor.getDouble(cursor.getColumnIndex(Transaction.COLUMN_PRICE)));
                 transaction.setTimestamp(cursor.getString(cursor.getColumnIndex(Transaction.COLUMN_TIMESTAMP)));
 
