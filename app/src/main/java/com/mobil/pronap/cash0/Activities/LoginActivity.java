@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.mobil.pronap.cash0.Utils.LanguageHelper;
 import com.mobil.pronap.cash0.models.User;
 import com.mobil.pronap.cash0.R;
 
@@ -36,6 +38,7 @@ public class LoginActivity extends AppCompatActivity{
     private Button login;
     private View mProgressView;
     Toolbar customToolbar;
+    public static String langPref = "fr";
 
     //persistence
     SharedPreferences sharedPreferences ;
@@ -52,6 +55,17 @@ public class LoginActivity extends AppCompatActivity{
         //Initialize persistence variable
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+
+
+        try{
+            langPref = sharedPreferences.getString("lang", "fr");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                LanguageHelper.changeLocal(getResources(), langPref);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
 
 
 
@@ -104,6 +118,7 @@ public class LoginActivity extends AppCompatActivity{
     private void login(String inputUser, String inputPass) {
         // do not forget to call Backendless.initApp in the app initialization code
 
+
         String register = sharedPreferences.getString("userRegister", null);
         gsonRegistered = new Gson();
         User registeredUser = gsonRegistered.fromJson(register, User.class);
@@ -116,6 +131,7 @@ public class LoginActivity extends AppCompatActivity{
                 gson = new Gson();
                 String json = gson.toJson(user);
                 editor.putString("infoUser",json);
+                editor.putString("lang", "fr");
                 editor.apply();
 
                 Intent i = new Intent(LoginActivity.this, DrawerActivity.class);

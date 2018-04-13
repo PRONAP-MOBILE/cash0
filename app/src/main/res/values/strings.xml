@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Cash 0</string>
-    <string name="splash_instruction">Chargement...</string>
+    <string name="splash_instruction">Loading...</string>
     <string name="link_profil">Link_Profil</string>
-    <string name="buy_button_text">Acheter</string>
-    <string name="sell_button_text">Vendre</string>
+    <string name="buy_button_text">Buy</string>
+    <string name="sell_button_text">Sell</string>
     <string name="forgot_account">Forgot User ID or Password</string>
-    <string name="create_account_text">Creer un Compte</string>
+    <string name="create_account_text">Sign in</string>
     <string name="user_profil_img">user_profil_img</string>
     <string name="title_activity_login">Sign in</string>
 
@@ -14,33 +14,33 @@
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Connection</string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">email non valide</string>
-    <string name="error_invalid_password">Mot de passe trop court</string>
-    <string name="error_incorrect_password">Mot de passe incorrecte</string>
-    <string name="error_field_required">Ce champs est requis</string>
+    <string name="error_invalid_email">email invalid</string>
+    <string name="error_invalid_password">Pasword is too short</string>
+    <string name="error_incorrect_password">Password incorrect</string>
+    <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
     <string name="todo">TODO</string>
-    <string name="info1">Plus besoin de liquide pour fonctionner, votre carte est votre billet</string>
-    <string name="info2">Utilisez davantage votre carte pour echanger, vente rapide et achat rapide via votre smartphone</string>
-    <string name="info3">Plus de garantie en terme de sécurité physique</string>
-    <string name="sign_up_fname">Nom:</string>
-    <string name="sign_up_LName">Prenom:</string>
-    <string name="sign_up_phone">Telephone</string>
-    <string name="sign_up_adress">Adresse:</string>
-    <string name="info_perso">Informations personnelles</string>
-    <string name="date_expiration">Date d\'expiration:</string>
-    <string name="no_carte">No de carte:</string>
-    <string name="no_compte">No de compte:</string>
-    <string name="info_bancaires">Informations Bancaires</string>
-    <string name="btn_scan_text">Scanner</string>
-    <string name="generer_qr_text">Generer le code de vente</string>
-    <string name="info_produit">Information sur le produit</string>
-    <string name="quit_message">Pressez une nouvelle fois pour quitter</string>
-    <string name="erreur_identifiant">No de téléphone ou mot de passe incorrect</string>
+    <string name="info1">No need for money to operate, your phone is your wallet</string>
+    <string name="info2">Use your card more to exchange, fast sale and fast purchse via your smartphone</string>
+    <string name="info3">safer for you</string>
+    <string name="sign_up_fname">Last name:</string>
+    <string name="sign_up_LName">First name:</string>
+    <string name="sign_up_phone">Phone: </string>
+    <string name="sign_up_adress">Adress:</string>
+    <string name="info_perso">Personnal Information </string>
+    <string name="date_expiration">Expiration date:</string>
+    <string name="no_carte">Card number:</string>
+    <string name="no_compte">Account number:</string>
+    <string name="info_bancaires">Bank Information</string>
+    <string name="btn_scan_text">Scan</string>
+    <string name="generer_qr_text">Generate a QR code</string>
+    <string name="info_produit">Product information</string>
+    <string name="quit_message">Press again to exit</string>
+    <string name="erreur_identifiant">Phone number or password incorrect</string>
     <string name="pin">PIN :</string>
-    <string name="envoyer">envoyer</string>
+    <string name="envoyer">SEND</string>
 
     <!-- dots inactive colors -->
     <color name="dot_inactive_screen1">#ffa000</color>
@@ -60,11 +60,19 @@
         <item>@color/dot_inactive_screen2</item>
         <item>@color/dot_inactive_screen3</item>
     </array>
-    <string name="title_activity_drawer">DrawerActivity</string>
+    <string name="title_activity_drawer">Home</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Parametre</string>
-    <string name="logout">Deconnexion</string>
+    <string name="logout">Disconnect</string>
+    <string name="lang">Language :</string>
+    <string name="valider">Validate</string>
+    <string name="mes_transactions">Mes transactions</string>
+    <string name="acceuil">Home</string>
+    <string name="regulateur">Regulator</string>
+    <string name="mon_compte">My account</string>
+    <string name="communicate">Communicate</string>
+    <string name="partager">Share</string>
 </resources>

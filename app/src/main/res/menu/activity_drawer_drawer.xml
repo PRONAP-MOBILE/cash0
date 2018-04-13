@@ -7,26 +7,26 @@
         <item
             android:id="@+id/acceuil"
             android:icon="@drawable/ic_home"
-            android:title="Acceuil" />
+            android:title="@string/acceuil" />
         <item
             android:id="@+id/transactions"
             android:icon="@drawable/ic_transaction"
-            android:title="Mes transactions" />
+            android:title="@string/mes_transactions" />
 
         <item
             android:id="@+id/regulateur"
             android:icon="@drawable/ic_user"
-            android:title="Regulateur"
+            android:title="@string/regulateur"
             />
 
         <item
             android:id="@+id/profil"
             android:icon="@drawable/ic_user"
-            android:title="Mon compte" />
+            android:title="@string/mon_compte" />
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_share"
@@ -34,7 +34,7 @@
                 android:title="@string/action_settings" />
             <item
                 android:id="@+id/nav_send"
-                android:title="Partager" />
+                android:title="@string/partager" />
         </menu>
     </item>
 
