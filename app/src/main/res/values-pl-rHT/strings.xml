@@ -74,4 +74,7 @@
     <string name="mon_compte">kont mwen</string>
     <string name="communicate">Kominike</string>
     <string name="partager">pataje</string>
+    <string name="incorrect_field">espas sa pa korek</string>
+    <string name="same_password_error">modpas yo dwe menm</string>
+    <string name="card_digits_error">kantite nonb ou mete a pa bon</string>
 </resources>
