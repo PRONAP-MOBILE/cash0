@@ -12,10 +12,18 @@
             android:id="@+id/transactions"
             android:icon="@drawable/ic_transaction"
             android:title="Mes transactions" />
+
+        <item
+            android:id="@+id/regulateur"
+            android:icon="@drawable/ic_user"
+            android:title="Regulateur"
+            />
+
         <item
             android:id="@+id/profil"
             android:icon="@drawable/ic_user"
             android:title="Mon compte" />
+
     </group>
 
     <item android:title="Communicate">

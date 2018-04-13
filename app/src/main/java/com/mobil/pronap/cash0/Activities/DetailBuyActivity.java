@@ -130,7 +130,7 @@ public class DetailBuyActivity extends AppCompatActivity {
         // ********* check if pin correct *****
 
         // send validation sms
-        if(SmsValidation.sendBuyConfirmation("37396810", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
+        if(sendBuyConfirmation("7396810", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
             Toast.makeText(getApplicationContext(),
                     "SMS buyer sent",
                     Toast.LENGTH_LONG).show();
@@ -140,7 +140,7 @@ public class DetailBuyActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        if(SmsValidation.sendSellConfirmation("37735608", "", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
+        if(sendSellConfirmation("33515777", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
             Toast.makeText(getApplicationContext(),
                     "SMS seller sent",
                     Toast.LENGTH_LONG).show();
@@ -152,6 +152,34 @@ public class DetailBuyActivity extends AppCompatActivity {
         }
         alertDialog.dismiss();
 
+    }
+
+
+
+    public boolean sendBuyConfirmation(String phone, String p_name, String p_detail, String p_price){
+        String sms = "Vous venez d'achetez un produit sur la plateforme Cash 0.\n Nom du produit: "+ p_name +" \n Note: "+ p_detail + " \n Montant: " + p_price +" \n" + "Merci d'utiliser la plateforme Cash 0 \n";
+        try {
+            android.telephony.SmsManager smsManager = android.telephony.SmsManager.getDefault();
+            smsManager.sendTextMessage(phone, null, sms, null, null);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getMessage();
+            return false;
+        }
+    }
+
+    public boolean sendSellConfirmation(String phone,String p_name, String p_detail, String p_price){
+        String sms = "Vous venez de vendre un produit sur la plateforme Cash 0.\n Nom du produit: "+ p_name +" \n Note: "+ p_detail + " \n Montant: " + p_price +" \n" + "Le montant sera directement debiter sur votre compte. Merci d'utiliser la plateforme Cash 0 \n";
+        try {
+            android.telephony.SmsManager smsManager = android.telephony.SmsManager.getDefault();
+            smsManager.sendTextMessage(phone, null, sms, null, null);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            e.getMessage();
+            return false;
+        }
     }
 
 }
