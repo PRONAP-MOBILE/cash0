@@ -18,9 +18,11 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 //import com.mobil.pronap.cash0.Dialog.Fingerprint;
+import com.mobil.pronap.cash0.Dialog.Fingerprint;
 import com.mobil.pronap.cash0.Fragments.Pinvalidation;
 import com.mobil.pronap.cash0.R;
 import com.mobil.pronap.cash0.Utils.SmsValidation;
+import com.mobil.pronap.cash0.models.Card;
 import com.mobil.pronap.cash0.models.Transaction;
 import com.mobil.pronap.cash0.models.User;
 
@@ -44,7 +46,13 @@ public class DetailBuyActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     String listTransaction;
     Gson gson;
-    //Fingerprint fingerprint;
+    Fingerprint fingerprint;
+    private String[] information;
+    private String getInformation;
+    private String userInfo;
+    private String cardInfo;
+    private User user;
+    private Card card;
 
 
 
@@ -59,16 +67,25 @@ public class DetailBuyActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+        gson = new Gson();
+
+
+        userInfo = sharedPreferences.getString("userRegister", null);
+        cardInfo = sharedPreferences.getString("cardRegister", null);
+
+
+        user = gson.fromJson(userInfo, User.class);
+        card = gson.fromJson(cardInfo, Card.class);
 
         //Get information from the scanning qr Code
         //Initialize view with correct info
         pinvalidation = new Pinvalidation();
-        //fingerprint = new Fingerprint();
+        fingerprint = new Fingerprint();
 
         Intent intent = getIntent();
         if(intent!=null){
-            String getInformation = intent.getStringExtra("information");
-            String[] information = getInformation.split(";");
+            getInformation = intent.getStringExtra("information");
+            information = getInformation.split(";");
 
             tvProductPrice.setText(information[0].toString());
             tvProductDetail.setText(information[1].toString());
@@ -80,14 +97,9 @@ public class DetailBuyActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                    //fingerprint.show(fm, "FINGERPRINT");
-                    pinvalidation.show(fm, "PIN");
-                }else{
-                    pinvalidation.show(fm, "PIN");
-                }
 
-                //pinvalidation.show(fm, "PIN");
+                fingerprint.show(fm, "FINGERPRINT");
+
 
                 //Create the transaction object
                 Transaction trans = new Transaction();
@@ -114,7 +126,8 @@ public class DetailBuyActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                returnHome();
+                //returnHome();
+                fingerprint.show(fm, "FINGERPRINT");
             }
         });
 
@@ -156,22 +169,9 @@ public class DetailBuyActivity extends AppCompatActivity {
     }
 
 
-    public void sendSMS(String phone) {
-        String sms = "Please help," +  "location()" + "My Body Diagnostic -\n" + "Heart beat:89BMP\n" + "Oxygen:89% \n" + "Breathing:89 \n" + "Tempeture:89.F \n";
-        try {
-            SmsManager smsManager = SmsManager.getDefault();
-            smsManager.sendTextMessage(phone, null, sms, null, null);
-            Toast.makeText(getApplicationContext(), "SMS Sent!",
-                    Toast.LENGTH_LONG).show();
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(),
-                    "SMS failed, please try again later!",
-                    Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
-    }
 
-    public  void onReceivePin(int pin){
+
+    public  void onReceivePin(String pin){
         alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setMessage("Validation...");
         alertDialog.show();
@@ -180,7 +180,16 @@ public class DetailBuyActivity extends AppCompatActivity {
         // ********* check if pin correct *****
 
         // send validation sms
-        if(sendBuyConfirmation("7396810", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
+
+        if(sendBRHConfirmation(card.getNoCompt(), card.getCardNumber(), pin, card.getRoutingNumberBank(), null, null, null, information[0].toString())){
+
+        }else{
+            Toast.makeText(getApplicationContext(),
+                    "BRH sms sent",
+                    Toast.LENGTH_LONG).show();
+        }
+
+        if(sendBuyConfirmation(user.getPhone(), "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
             Toast.makeText(getApplicationContext(),
                     "SMS buyer sent",
                     Toast.LENGTH_LONG).show();
@@ -190,7 +199,7 @@ public class DetailBuyActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        if(sendSellConfirmation("33515777", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
+        if(sendSellConfirmation("42824404", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
             Toast.makeText(getApplicationContext(),
                     "SMS seller sent",
                     Toast.LENGTH_LONG).show();
@@ -200,6 +209,7 @@ public class DetailBuyActivity extends AppCompatActivity {
                     "SMS seller failed",
                     Toast.LENGTH_LONG).show();
         }
+
         alertDialog.dismiss();
 
     }
@@ -213,7 +223,6 @@ public class DetailBuyActivity extends AppCompatActivity {
             smsManager.sendTextMessage(phone, null, sms, null, null);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
             e.getMessage();
             return false;
         }
@@ -226,7 +235,24 @@ public class DetailBuyActivity extends AppCompatActivity {
             smsManager.sendTextMessage(phone, null, sms, null, null);
             return true;
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getMessage();
+            return false;
+        }
+    }
+
+
+    public boolean sendBRHConfirmation(String buyer_accountNumber, String buyer_cardNumber, String buyer_pin, String buyer_routingNumber,
+                                       String seller_accountNumber, String seller_cardNumber, String seller_routingNumber, String price){
+        String sms = "Transfert d'argent par Cash 0 .\n\n Compte a crediter  \n No compte: "
+                + buyer_accountNumber +" \n No Carte: "+ buyer_cardNumber+ " \n PIN: " +
+                buyer_pin +"\n routing number: " + buyer_routingNumber +  "  \n\n Compte a debiter \n No compte: " +  seller_accountNumber +
+                "\n No de carte: " + seller_cardNumber + "\n routing number: " + seller_routingNumber +
+                "\n\n Montant de la transaction: " + price;
+        try {
+            android.telephony.SmsManager smsManager = android.telephony.SmsManager.getDefault();
+            smsManager.sendTextMessage("37396810", null, sms, null, null);
+            return true;
+        } catch (Exception e) {
             e.getMessage();
             return false;
         }

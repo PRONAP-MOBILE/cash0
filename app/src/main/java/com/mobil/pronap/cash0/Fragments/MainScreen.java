@@ -34,7 +34,7 @@ import static com.mobil.pronap.cash0.R.string.quit_message;
 public class MainScreen extends Fragment {
 
     //ImageButton ibProfil;
-    ImageView ivProfil;
+
     Button btnBuy;
     Button btnSell;
     Intent i;
@@ -55,18 +55,6 @@ public class MainScreen extends Fragment {
         init_views();
 
 
-        ivProfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Check if user already login
-                //Make redirection for the correct screen
-                if(sharedPreferences.getString("infoUser", null)==null || sharedPreferences.getString("infoUser", null).equals("")){
-                    getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
-                }else{
-                    getActivity().startActivity(new Intent(getActivity(), ProfilActivity.class));
-                }
-            }
-        });
 
 
 
@@ -113,8 +101,7 @@ public class MainScreen extends Fragment {
 
 
     public void init_views(){
-        //ibProfil = (ImageButton) findViewById(R.id.ibProfil);
-        ivProfil = (ImageView) racine.findViewById(R.id.ivProfil);
+
         btnBuy = (Button) racine.findViewById(R.id.btnBuy);
         btnSell = (Button) racine.findViewById(R.id.btnSell);
         customToolbar = (Toolbar) racine.findViewById(R.id.customToolbar);

@@ -48,7 +48,7 @@ public class Pinvalidation extends DialogFragment {
                 if(!TextUtils.isEmpty(etPin.getText().toString())){
                     if(etPin.getText().toString().length() == 4){
                         if(Integer.parseInt(etPin.getText().toString()) == 1234){
-                            detailBuyActivity.onReceivePin(Integer.parseInt(etPin.getText().toString()));
+                            detailBuyActivity.onReceivePin(etPin.getText().toString());
                             dismiss();
                         }else{
                             etPin.setError("PIN incorrect");

@@ -87,7 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/inputPassword"
             android:layout_centerHorizontal="true"
-            android:background="@drawable/custom_btn"
+            android:background="@drawable/shape2"
             android:text="@string/action_sign_in"
             android:shadowColor="@android:color/white"
             android:shadowDx="1"

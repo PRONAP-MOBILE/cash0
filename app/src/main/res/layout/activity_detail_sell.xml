@@ -21,7 +21,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="vertical">
 
 
@@ -35,7 +38,7 @@
                     android:digits="1234567890."
                     android:hint="Prix en gourdes"
                     android:textColor="@android:color/holo_red_light"
-                    android:textSize="50sp" />
+                    android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/etProductDetail"
@@ -48,7 +51,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -56,14 +59,17 @@
 
             <Button
                 android:id="@+id/btnGenarateQR"
-                android:layout_width="match_parent"
+                android:layout_width="260dp"
+                android:layout_centerInParent="true"
                 android:layout_height="wrap_content"
-                android:background="@color/darkBlue"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape2"
+
                 android:text="@string/generer_qr_text"
-                android:textColor="@color/white"
+                android:textColor="@android:color/black"
                 android:textSize="17sp" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
 
 </LinearLayout>

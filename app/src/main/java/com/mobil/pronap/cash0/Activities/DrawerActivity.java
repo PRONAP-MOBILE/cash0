@@ -286,21 +286,10 @@ public class DrawerActivity extends AppCompatActivity
 
 
     public void requestPermission(){
-        if(!mayRequestContacts()){
+        if(!mayRequestContacts() && !mayRequestFingerPrint() && !mayRequestSMS() && !mayRequestWriteSMS() && !mayRequestSensor()){
             return;
         }
-        if(!mayRequestFingerPrint()){
-            return;
-        }
-        if(!mayRequestSMS()){
-            return;
-        }
-        if(!mayRequestWriteSMS()){
-            return;
-        }
-        if(!mayRequestSensor()){
-            return;
-        }
+
     }
 
     private boolean mayRequestContacts() {
