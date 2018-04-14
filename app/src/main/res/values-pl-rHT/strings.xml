@@ -8,6 +8,13 @@
     <string name="create_account_text">Kreye yon kont</string>
     <string name="user_profil_img">user_profil_img</string>
     <string name="title_activity_login">Koneksyon</string>
+    <string name="creating_account">Sa ap fèt...</string>
+    <string name="test">dvdv</string>
+    <string name="fingerprint_support">Aparey ou a pa pran anprint</string>
+    <string name="fingerprint_error1">Nou pa ka rekonet anprent sa</string>
+    <string name="limitSpend">Alèt depans</string>
+    <string name="prixLimit">Ex:10000</string>
+    <string name="btnLimit">Save</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">imel</string>
@@ -96,4 +103,5 @@
     <string name="detail_sur_le_produit">Detail sur le produit</string>
     <string name="pas_correct">Incorrect</string>
     <string name="bank">Banque :</string>
+    <string name="sign_up">Kreye yon kont</string>
 </resources>

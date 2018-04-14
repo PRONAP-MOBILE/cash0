@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bank_array">
+        <item>SogeIzi</item>
+        <item>Unibank Tout Kote</item>
+        <item>BNC carte de débit -  MasterCard</item>
+        <item>BUH carte de débit -  MasterCard</item>
+    </string-array>
+
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Français</item>
+        <item>Kreyol</item>
+    </string-array>
+</resources>

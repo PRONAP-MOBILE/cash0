@@ -49,17 +49,11 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        try{
-            langPref = sharedPreferences.getString("lang", "HT");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                LanguageHelper.changeLocal(getResources(), langPref);
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
 
         // Checking for first time launch - before calling setContentView()
         prefManager = new PreferenceManager(this);
+
+
         if (!prefManager.isFirstTimeLaunch()) {
             launchHomeScreen();
             finish();
@@ -172,7 +166,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 btnSkip.setVisibility(View.GONE);
             } else {
                 // still pages are left
-                btnNext.setText("Suivant");
+                btnNext.setText(R.string.next_welcome);
                 btnSkip.setVisibility(View.VISIBLE);
             }
         }

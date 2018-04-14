@@ -8,6 +8,9 @@
     <string name="create_account_text">Sign in</string>
     <string name="user_profil_img">user_profil_img</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="limitSpend">Expens alert</string>
+    <string name="prixLimit">Ex:10000</string>
+    <string name="btnLimit">Save</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -22,9 +25,9 @@
         completions."
     </string>
     <string name="todo">TODO</string>
-    <string name="info1">No need for money to operate, your phone is your wallet</string>ƒ
-    <string name="info2">Use your card more to exchange, fast sale and fast purchse via your smartphone</string>
-    <string name="info3">safer for you</string>
+    <string name="info1">Ou pa bezwen lajan pou ou fonksyone anko, telefon ou ak kat ou la pou sa</string>
+    <string name="info2">Itilize kat ou plis kounya pou ou fe tranzaksyon, vann rapid, achte rapid avèk telephone ou </string>
+    <string name="info3">Li pi bon pou sekirite\'w</string>
     <string name="sign_up_fname">Last name:</string>
     <string name="sign_up_LName">First name:</string>
     <string name="sign_up_phone">Phone: </string>
@@ -82,7 +85,7 @@
     <string name="creating_account">In progress...</string>
     <string name="sign_up">Sign Up</string>
     <string name="cancel_fgprint">Cancel</string>
-    <string name="use_pin_instead">Use PIN instead</string>
+    <string name="use_pin_instead">PIN</string>
     <string name="fingerprint_permission">We don\'t have acces to your fingerprint sensor</string>
     <string name="fingerprint_register">No fingerprint has been registered</string>
     <string name="fingerprint_support">Your device don\'t support fingerprint</string>
@@ -91,8 +94,8 @@
     <string name="fingerprint_succes">Authentication succeeded.</string>
     <string name="fingerprint_scan">Scan your finger</string>
     <string name="restart">Change will be made on next restart</string>
-    <string name="next">Skip</string>
-    <string name="next_welcome">next</string>
+    <string name="next">Pase</string>
+    <string name="next_welcome">Apre</string>
     <string name="sign_up_btn">Sign up</string>
     <string name="btn_buy">Buy</string>
     <string name="save">Save</string>

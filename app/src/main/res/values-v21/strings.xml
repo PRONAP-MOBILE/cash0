@@ -22,9 +22,9 @@
         completions."
     </string>
     <string name="todo">TODO</string>
-    <string name="info1">No need for money to operate, your phone is your wallet</string>
-    <string name="info2">Use your card more to exchange, fast sale and fast purchse via your smartphone</string>
-    <string name="info3">safer for you</string>
+    <string name="info1">Ou pa bezwen lajan pou ou fonksyone anko, telefon ou ak kat ou la pou sa</string>
+    <string name="info2">Itilize kat ou plis kounya pou ou fe tranzaksyon, vann rapid, achte rapid avèk telephone ou </string>
+    <string name="info3">Li pi bon pou sekirite\'w</string>
     <string name="sign_up_fname">Last name:</string>
     <string name="sign_up_LName">First name:</string>
     <string name="sign_up_phone">Phone: </string>
@@ -91,8 +91,8 @@
     <string name="fingerprint_succes">Authentication succeeded.</string>
     <string name="fingerprint_scan">Scan your finger</string>
     <string name="restart">Change will be made on next restart</string>
-    <string name="next">Skip</string>
-    <string name="next_welcome">Next</string>
+    <string name="next">Pase</string>
+    <string name="next_welcome">Apre</string>
     <string name="sign_up_btn">Sign up</string>
     <string name="btn_buy">Buy</string>
     <string name="save">Save</string>

@@ -8,6 +8,13 @@
     <string name="create_account_text">Kreye yon kont</string>
     <string name="user_profil_img">user_profil_img</string>
     <string name="title_activity_login">Koneksyon</string>
+    <string name="creating_account">Sa ap fèt...</string>
+    <string name="test">dvdv</string>
+    <string name="fingerprint_support">Aparey ou a pa pran anprent</string>
+    <string name="fingerprint_error1">Nou pa ka rekonet anprent la</string>
+    <string name="limitSpend">Alèt depans</string>
+    <string name="prixLimit">Ex:10000</string>
+    <string name="btnLimit">Save</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">imel</string>
@@ -70,7 +77,7 @@
     <string name="valider">Valide</string>
     <string name="mes_transactions">Tranzaksyon pam</string>
     <string name="acceuil">Akèy</string>
-    <string name="regulateur">Regilatè</string>
+    <string name="regulateur">Ti bidjè</string>
     <string name="mon_compte">Kont mwen</string>
     <string name="communicate">Lòt</string>
     <string name="partager">Pataje</string>
@@ -78,7 +85,7 @@
     <string name="same_password_error">modpas yo dwe menm</string>
     <string name="card_digits_error">kantite nonb ou mete a pa bon</string>
     <string name="cancel_fgprint">Anile</string>
-    <string name="use_pin_instead">Itlize PIN pito</string>
+    <string name="use_pin_instead">PIN</string>
     <string name="fingerprint_permission">Nou pa gen aksè a lèkte pou li anprint ou</string>
     <string name="fingerprint_register">okenn anprint pat anrejistre</string>
     <string name="fingerprint_error2">Nou pa ka demare lektè anprint la. Itilize PIN pito</string>
@@ -96,4 +103,5 @@
     <string name="detail_sur_le_produit">Detay</string>
     <string name="pas_correct">Inkorèk</string>
     <string name="bank">Bank:</string>
+    <string name="sign_up">Kreye yon kont</string>
 </resources>
