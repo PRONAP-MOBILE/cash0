@@ -86,6 +86,7 @@ public class SignupActivity extends AppCompatActivity {
                     //get card info
                     Card userCard = new Card();
                     userCard.setRoutingNumberBank("00111011");
+                    userCard.setType(spBankChooser.getSelectedItem().toString());
                     userCard.setNoCompt(tvAccountNumber.getText().toString());
                     userCard.setUserdId(edtTel.getText().toString());
                     userCard.setCardNumber(tvCardNumber.getText().toString());
