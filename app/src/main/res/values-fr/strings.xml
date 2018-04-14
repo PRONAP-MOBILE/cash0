@@ -11,6 +11,11 @@
     <string name="title_activity_login">Sign in</string>
     <string name="prixLimit">Ex:10000</string>
     <string name="btnLimit">Sauvegarder</string>
+    <string name="creating_account">En cours...</string>
+    <string name="test">dvdv</string>
+
+    <string name="fingerprint_support">Ton appareil ne contient pas de lecteur d\'empreinte</string>
+    <string name="fingerprint_error1">Cannot recognize your finger print. Please try again.</string>
 
 
     <!-- Strings related to login -->
@@ -100,4 +105,5 @@
     <string name="detail_sur_le_produit">Detail sur le produit</string>
     <string name="pas_correct">Incorrect</string>
     <string name="bank">Banque :</string>
+    <string name="sign_up">S\'enregistrer</string>
 </resources>

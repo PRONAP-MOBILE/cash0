@@ -1,6 +1,7 @@
 
 
 package com.mobil.pronap.cash0.Dialog;
+import android.content.Intent;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobil.pronap.cash0.Activities.DetailBuyActivity;
+import com.mobil.pronap.cash0.Activities.DrawerActivity;
 import com.mobil.pronap.cash0.Fragments.Pinvalidation;
 import com.mobil.pronap.cash0.R;
 import com.multidots.fingerprintauth.AuthErrorCodes;
@@ -36,6 +38,7 @@ public class Fingerprint extends DialogFragment implements FingerPrintAuthCallba
     ImageView ivFingerPrint;
     FragmentManager fm;
     Pinvalidation pinvalidation;
+    Intent i;
     DetailBuyActivity detailBuyActivity;
     private FingerPrintAuthHelper mFingerPrintAuthHelper;
 
@@ -57,9 +60,29 @@ public class Fingerprint extends DialogFragment implements FingerPrintAuthCallba
 
         mFingerPrintAuthHelper = FingerPrintAuthHelper.getHelper(detailBuyActivity, this);
 
+        tvUsePin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pinvalidation.show(fm, "PIN");
+                dismiss();
+            }
+        });
+
+        tvCancelFP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                returnHome();
+            }
+        });
+
 
 
         return  racine;
+    }
+
+    public void returnHome(){
+        i = new Intent(detailBuyActivity, DrawerActivity.class);
+        startActivity(i);
     }
 
     @Override

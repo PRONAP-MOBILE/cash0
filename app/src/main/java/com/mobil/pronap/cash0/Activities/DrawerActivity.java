@@ -216,11 +216,12 @@ public class DrawerActivity extends AppCompatActivity
                 FragmentManager fm = getSupportFragmentManager();
                 Dialog_Regulator alertDialog = Dialog_Regulator.newInstance("Limite dépense");
                 alertDialog.show(fm, "alert dialog");
-
-                break;
+                drawer.closeDrawers();
+                return true;
             case R.id.nav_settings:
                 settings.show(fragmentManager, "SETTINGS");
-                break;
+                drawer.closeDrawers();
+                return true;
             case R.id.nav_share:
                 drawer.closeDrawers();
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);

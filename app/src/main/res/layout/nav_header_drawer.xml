@@ -12,24 +12,34 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-    <ImageView
-        android:id="@+id/ivLogoDrawer"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivLogoDrawer"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentRight="true"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
+            app:srcCompat="@mipmap/ic_launcher_round" />
+
+    </RelativeLayout>
+
 
     <TextView
         android:id="@+id/tvTitleDrawer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:textSize="20sp"
         android:text="@string/app_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:id="@+id/tvDetailDrawer"
         android:layout_width="wrap_content"
+        android:textSize="16sp"
         android:layout_height="wrap_content"
         android:text="Fintech 2018" />
 

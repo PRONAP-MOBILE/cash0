@@ -1,10 +1,13 @@
 package com.mobil.pronap.cash0.Activities;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Build;
 import android.speech.tts.TextToSpeech;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -29,6 +32,9 @@ import com.mobil.pronap.cash0.models.User;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+import static android.Manifest.permission.SEND_SMS;
+import static android.Manifest.permission.USE_FINGERPRINT;
 
 public class DetailBuyActivity extends AppCompatActivity {
 
@@ -55,6 +61,13 @@ public class DetailBuyActivity extends AppCompatActivity {
     private String cardInfo;
     private User user;
     private Card card;
+
+    private static final int REQUEST_READ_CONTACTS = 0;
+    private static final int REQUEST_SEND_SMS = 0;
+    private static final int REQUEST_SENSOR = 0;
+    private static final int REQUEST_FINGERPRINT = 0;
+    private static final int REQUEST_WRITE_SMS = 0;
+
 
 
 
@@ -94,6 +107,8 @@ public class DetailBuyActivity extends AppCompatActivity {
             tvInfoSell.setText("@Vendeur: "+information[3].toString());
         }
 
+        requestPermission();
+
 
         btnValidate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,8 +144,8 @@ public class DetailBuyActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //returnHome();
-                fingerprint.show(fm, "FINGERPRINT");
+                returnHome();
+
             }
         });
 
@@ -263,6 +278,36 @@ public class DetailBuyActivity extends AppCompatActivity {
             e.getMessage();
             return false;
         }
+    }
+
+    public void requestPermission(){
+        if(!mayRequestFingerPrint()){
+            return;
+        }
+
+    }
+
+
+    private boolean mayRequestFingerPrint() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+        if (checkSelfPermission(USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        if (shouldShowRequestPermissionRationale(USE_FINGERPRINT)) {
+            Snackbar.make(tvProductDetail, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+                    .setAction(android.R.string.ok, new View.OnClickListener() {
+                        @Override
+                        @TargetApi(Build.VERSION_CODES.M)
+                        public void onClick(View v) {
+                            requestPermissions(new String[]{USE_FINGERPRINT}, REQUEST_FINGERPRINT);
+                        }
+                    });
+        } else {
+            requestPermissions(new String[]{SEND_SMS}, REQUEST_FINGERPRINT);
+        }
+        return false;
     }
 
 }
