@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 //import com.mobil.pronap.cash0.Dialog.Fingerprint;
+import com.mobil.pronap.cash0.Dialog.Fingerprint;
 import com.mobil.pronap.cash0.Fragments.Pinvalidation;
 import com.mobil.pronap.cash0.R;
 import com.mobil.pronap.cash0.Utils.SmsValidation;
@@ -44,7 +45,7 @@ public class DetailBuyActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     String listTransaction;
     Gson gson;
-    //Fingerprint fingerprint;
+    Fingerprint fingerprint;
 
 
 
@@ -63,7 +64,7 @@ public class DetailBuyActivity extends AppCompatActivity {
         //Get information from the scanning qr Code
         //Initialize view with correct info
         pinvalidation = new Pinvalidation();
-        //fingerprint = new Fingerprint();
+        fingerprint = new Fingerprint();
 
         Intent intent = getIntent();
         if(intent!=null){
@@ -80,9 +81,12 @@ public class DetailBuyActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
+
+                fingerprint.show(fm, "FINGERPRINT");
+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                     //fingerprint.show(fm, "FINGERPRINT");
-                    pinvalidation.show(fm, "PIN");
+                    //pinvalidation.show(fm, "PIN");
                 }else{
                     pinvalidation.show(fm, "PIN");
                 }
@@ -114,7 +118,8 @@ public class DetailBuyActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                returnHome();
+                //returnHome();
+                fingerprint.show(fm, "FINGERPRINT");
             }
         });
 
@@ -180,7 +185,7 @@ public class DetailBuyActivity extends AppCompatActivity {
         // ********* check if pin correct *****
 
         // send validation sms
-        if(sendBuyConfirmation("7396810", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
+        if(sendBuyConfirmation("37396810", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
             Toast.makeText(getApplicationContext(),
                     "SMS buyer sent",
                     Toast.LENGTH_LONG).show();
@@ -190,7 +195,7 @@ public class DetailBuyActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        if(sendSellConfirmation("33515777", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
+        if(sendSellConfirmation("42824404", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
             Toast.makeText(getApplicationContext(),
                     "SMS seller sent",
                     Toast.LENGTH_LONG).show();

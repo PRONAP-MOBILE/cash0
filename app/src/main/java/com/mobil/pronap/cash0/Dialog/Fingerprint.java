@@ -1,5 +1,5 @@
 
-/*
+
 package com.mobil.pronap.cash0.Dialog;
 import android.hardware.fingerprint.FingerprintManager;
 import android.os.Build;
@@ -160,5 +160,5 @@ public class Fingerprint extends DialogFragment implements FingerPrintAuthCallba
     }
 }
 
-*/
+
 
