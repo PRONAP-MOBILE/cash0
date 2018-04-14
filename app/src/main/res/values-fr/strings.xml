@@ -5,9 +5,9 @@
     <string name="buy_button_text">Acheter</string>
     <string name="sell_button_text">Vendre</string>
     <string name="forgot_account">Identifiant oublie</string>
-    <string name="create_account_text">Creer un Compte</string>
+    <string name="create_account_text">Créer un Compte</string>
     <string name="user_profil_img">user_profil_img</string>
-    <string name="limitSpend">Alerte depense</string>
+    <string name="limitSpend">Alerte dépense</string>
     <string name="title_activity_login">Sign in</string>
     <string name="prixLimit">Ex:10000</string>
     <string name="btnLimit">Sauvegarder</string>
@@ -68,17 +68,27 @@
     <string name="navigation_drawer_open">Ouvrir le menu de navigation</string>
     <string name="navigation_drawer_close">Fermer le menu de navigation</string>
 
-    <string name="action_settings">Parametre</string>
-    <string name="logout">Deconnexion</string>
+    <string name="action_settings">Paramètre</string>
+    <string name="logout">Déconnexion</string>
     <string name="lang">Langue :</string>
     <string name="valider">Valider</string>
     <string name="mes_transactions">Mes transactions</string>
     <string name="acceuil">Acceuil</string>
     <string name="regulateur">Regulateur</string>
     <string name="mon_compte">Mon compte</string>
-    <string name="communicate">Communicate</string>
+    <string name="communicate">Communiquer</string>
     <string name="partager">Partager</string>
     <string name="incorrect_field">Ce champs est incorrect</string>
-    <string name="same_password_error">Les mots de passe doivent etre les meme</string>
-    <string name="card_digits_error">Le nombre de caractere entre est incorrect</string>
+    <string name="same_password_error">Les mots de passe doivent être les même</string>
+    <string name="card_digits_error">Le nombre de caractère entré est incorrect</string>
+    <string name="cancel_fgprint">Annulé</string>
+    <string name="use_pin_instead">Utiliser votre PIN</string>
+    <string name="fingerprint_permission">Nous n\'avons pas accès a votre lecteur d\'empreinte</string>
+    <string name="fingerprint_register">Aucune empreinte enregistrer sur votre appareil</string>
+    <string name="fingerprint_error2">Le lecteur d\'empreinte ne peut etre initialiser. Utilisez votre PIN pour vous authentifier</string>
+    <string name="fingerprint_succes">Authentifié avec succès</string>
+    <string name="fingerprint_scan">Scanner votre empreinte</string>
+    <string name="restart">L\'application va redémarrer  pour apporter les changements</string>
+    <string name="next">Passer</string>
+    <string name="next_welcome">Suivant</string>
 </resources>

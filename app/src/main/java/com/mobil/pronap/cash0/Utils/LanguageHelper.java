@@ -20,7 +20,6 @@ public class LanguageHelper {
         config = new Configuration(res.getConfiguration());
 
         switch (lang) {
-
             case "en":
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                     config.setLocale(Locale.ENGLISH);
@@ -49,12 +48,10 @@ public class LanguageHelper {
                 break;
             default:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                    config.setLocale(Locale.FRENCH);
-                    config.locale = Locale.FRENCH;
-
-
+                    config.setLocale(Locale.JAPANESE);
+                    config.locale = Locale.JAPANESE;
                 }else{
-                    config.locale = Locale.FRENCH;
+                    config.locale = Locale.JAPANESE;
                 }
                 break;
         }

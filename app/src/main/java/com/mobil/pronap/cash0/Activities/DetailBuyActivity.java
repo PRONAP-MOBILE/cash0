@@ -3,6 +3,7 @@ package com.mobil.pronap.cash0.Activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+//import com.mobil.pronap.cash0.Dialog.Fingerprint;
 import com.mobil.pronap.cash0.Fragments.Pinvalidation;
 import com.mobil.pronap.cash0.R;
 import com.mobil.pronap.cash0.Utils.SmsValidation;
@@ -42,6 +44,7 @@ public class DetailBuyActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     String listTransaction;
     Gson gson;
+    //Fingerprint fingerprint;
 
 
 
@@ -60,6 +63,7 @@ public class DetailBuyActivity extends AppCompatActivity {
         //Get information from the scanning qr Code
         //Initialize view with correct info
         pinvalidation = new Pinvalidation();
+        //fingerprint = new Fingerprint();
 
         Intent intent = getIntent();
         if(intent!=null){
@@ -74,6 +78,15 @@ public class DetailBuyActivity extends AppCompatActivity {
         btnValidate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    //fingerprint.show(fm, "FINGERPRINT");
+                    pinvalidation.show(fm, "PIN");
+                }else{
+                    pinvalidation.show(fm, "PIN");
+                }
+
                 pinvalidation.show(fm, "PIN");
 
                 //Create the transaction object

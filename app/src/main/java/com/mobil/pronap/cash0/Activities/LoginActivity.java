@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity{
 
 
         try{
-            langPref = sharedPreferences.getString("lang", "fr");
+            langPref = sharedPreferences.getString("lang", "HT");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 LanguageHelper.changeLocal(getResources(), langPref);
             }
@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity{
 
 
 
-        if(sharedPreferences.getString("infoUser", null)!=null){
+        if(sharedPreferences.getString("infoUser", null)!= null){
             //startActivity(new Intent(LoginActivity.this, MainActivity.class));
             startActivity(new Intent(LoginActivity.this, DrawerActivity.class));
             finish();

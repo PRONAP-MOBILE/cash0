@@ -51,7 +51,8 @@ public class Settings extends DialogFragment {
         spLang = (Spinner) racine.findViewById(R.id.spLang);
         btnSetValidation = (Button) racine.findViewById(R.id.btnSetValidation);
 
-        lang = sharedPreferences.getString("lang", "fr");
+        lang = sharedPreferences.getString("lang", "HT");
+
 
 
         drawerActivity = (DrawerActivity) getActivity();
@@ -91,14 +92,16 @@ public class Settings extends DialogFragment {
                         break;
                     default:
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                            LanguageHelper.changeLocal(drawerActivity.getResources(), "fr");
+                            LanguageHelper.changeLocal(drawerActivity.getResources(), "HT");
                         }
-                        editor.putString("lang", "fr");
+                        editor.putString("lang", "HT");
                         editor.apply();
                         break;
+
                 }
                 dismiss();
-                Toast.makeText(drawerActivity, lang, Toast.LENGTH_SHORT).show();
+                Toast.makeText(drawerActivity, R.string.restart, Toast.LENGTH_SHORT).show();
+                drawerActivity.restartApp();
             }
         });
 
