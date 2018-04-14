@@ -41,10 +41,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/tvProductDetail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:hint="Detail sur le produit"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
             <android.support.v7.widget.CardView
                 xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -54,17 +63,8 @@
                     android:layout_marginBottom="10dp"
                     android:text="Prix"
                     android:textColor="@android:color/holo_red_light"
-                    android:textSize="50sp" />
+                    android:textSize="30sp" />
             </android.support.v7.widget.CardView>
-
-            <TextView
-                android:id="@+id/tvProductDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:hint="Detail sur le produit"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
 
         </LinearLayout>
 
@@ -83,7 +83,7 @@
                 android:background="@color/darkBlue"
                 android:textColor="@color/white"
                 android:textSize="17sp"
-                android:text="Acheter" />
+                android:text="@string/btn_buy" />
 
             <Button
                 android:id="@+id/btnCancel"
@@ -95,7 +95,7 @@
                 android:background="@color/darkBlue"
                 android:textColor="@color/white"
                 android:textSize="17sp"
-                android:text="Annuler" />
+                android:text="@string/cancel_fgprint" />
 
 
         </RelativeLayout>

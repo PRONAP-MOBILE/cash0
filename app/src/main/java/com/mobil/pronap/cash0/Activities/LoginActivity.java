@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity{
         });
 
 
-            // mProgressView = findViewById(R.id.login_progress);
+        // mProgressView = findViewById(R.id.login_progress);
     }
 
 
@@ -126,7 +126,7 @@ public class LoginActivity extends AppCompatActivity{
 
         int checkVal = checkPreference();
 
-        if(checkVal==0){
+        if(checkVal!=0){
             if(!TextUtils.isEmpty(passUser.getText().toString()) && !TextUtils.isEmpty(phoneUser.getText().toString())){
                 int val = correctUser(inputUser, inputPass);
                 if(val != 0) {
@@ -167,20 +167,13 @@ public class LoginActivity extends AppCompatActivity{
         gsonRegistered = new Gson();
         User registeredUser = gsonRegistered.fromJson(register, User.class);
 
-        int checkExist = checkPreference();
-        if(checkExist==0){
+
+        if(!passUser.getText().toString().equals(registeredUser.getPassword()) || !phoneUser.getText().toString().equals(registeredUser.getPhone())){
             val = 0;
         }
         else{
-            if(!passUser.getText().toString().equals(registeredUser.getPassword()) || !phoneUser.getText().toString().equals(registeredUser.getPhone())){
-                val = 0;
-            }
-            else{
-                val = 1;
-            }
+            val = 1;
         }
-
-
 
 
         return val;

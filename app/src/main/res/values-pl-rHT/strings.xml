@@ -88,4 +88,10 @@
     <string name="next">Passer</string>
     <string name="next_welcome">Suivant</string>
     <string name="sign_up_btn">S\'enregistrer</string>
+    <string name="btn_buy">Acheter</string>
+    <string name="save">Sauvegarder</string>
+    <string name="limite">Limite dépense</string>
+    <string name="ex">Ex:10000 Gdes</string>
+    <string name="prix_en_gourdes">Prix en gourdes</string>
+    <string name="detail_sur_le_produit">Detail sur le produit</string>
 </resources>
