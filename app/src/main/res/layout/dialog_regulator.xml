@@ -8,13 +8,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="Limite dépense"
+            android:text="@string/limite"
             android:textSize="20sp"
             android:textStyle="bold"
             />
@@ -22,19 +24,25 @@
         <EditText
             android:layout_width="match_parent"
             android:id="@+id/edtLimitSpend"
-            android:textSize="40dp"
+            android:textSize="30sp"
             android:inputType="number"
             android:digits="1234567890."
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:textColor="@android:color/holo_red_light"
-            android:hint="Ex:10000 Gdes"/>
+            android:hint="@string/ex"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/custom_btn"
             android:id="@+id/btLimitSpend"
-            android:text="Sauvegarder"
-            android:textSize="20dp" />
+            android:text="@string/save"
+            android:textSize="20sp" />
 
 
 

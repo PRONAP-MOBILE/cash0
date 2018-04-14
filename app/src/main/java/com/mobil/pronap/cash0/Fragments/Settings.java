@@ -101,7 +101,7 @@ public class Settings extends DialogFragment {
                 }
                 dismiss();
                 Toast.makeText(drawerActivity, R.string.restart, Toast.LENGTH_SHORT).show();
-                drawerActivity.restartApp();
+
             }
         });
 

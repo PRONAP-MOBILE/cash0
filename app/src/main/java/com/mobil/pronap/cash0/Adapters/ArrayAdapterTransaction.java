@@ -43,7 +43,7 @@ public class ArrayAdapterTransaction extends ArrayAdapter<Transaction> {
 
         //populate data
         desc.setText(trans.getDescription().toString());
-        prix.setText(trans.getPrix().toString());
+        prix.setText(trans.getPrix().toString()+ " Gdes");
         date.setText(trans.getDateTrans().toString());
 
 

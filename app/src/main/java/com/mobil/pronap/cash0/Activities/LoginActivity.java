@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity{
         });
 
 
-            // mProgressView = findViewById(R.id.login_progress);
+        // mProgressView = findViewById(R.id.login_progress);
     }
 
 

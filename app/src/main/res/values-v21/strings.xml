@@ -90,8 +90,14 @@
     <string name="fingerprint_error2">Cannot initialize finger print authentication. Please type 1234 to authenticate.</string>
     <string name="fingerprint_succes">Authentication succeeded.</string>
     <string name="fingerprint_scan">Scan your finger</string>
-    <string name="restart">The app will restart soon</string>
+    <string name="restart">Change will be made on next restart</string>
     <string name="next">Skip</string>
     <string name="next_welcome">Next</string>
     <string name="sign_up_btn">Sign up</string>
+    <string name="btn_buy">Buy</string>
+    <string name="save">Save</string>
+    <string name="limite">Budget</string>
+    <string name="ex">Ex:10000 Gdes</string>
+    <string name="prix_en_gourdes">Price (Gdes)</string>
+    <string name="detail_sur_le_produit">Detail</string>
 </resources>

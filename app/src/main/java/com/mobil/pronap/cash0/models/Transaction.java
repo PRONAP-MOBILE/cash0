@@ -5,6 +5,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by jetro on 4/10/18.
@@ -58,7 +59,7 @@ public class Transaction {
 
 
     public static ArrayList<Transaction> fromJson(JSONArray jsonArray){
-        ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+        ArrayList<Transaction> transactions = new ArrayList<>();
         for(int i = 0 ; i < jsonArray.length(); i++ ){
             try {
                 transactions.add(new Transaction(jsonArray.getJSONObject(i)));

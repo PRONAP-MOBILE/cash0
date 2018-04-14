@@ -14,6 +14,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.text.Html;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -152,6 +153,7 @@ public class DrawerActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             moveTaskToBack(true);
+            System.exit(0);
         }
     }
 
@@ -216,7 +218,17 @@ public class DrawerActivity extends AppCompatActivity
                 alertDialog.show(fm, "alert dialog");
 
                 break;
-
+            case R.id.nav_settings:
+                settings.show(fragmentManager, "SETTINGS");
+                break;
+            case R.id.nav_share:
+                drawer.closeDrawers();
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/html");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>This is the text shared.</p>"));
+                startActivity(Intent.createChooser(sharingIntent, "Share using"));
+                drawer.closeDrawers();
+                return true;
             default:
                 //fragmentClass = Info.class;
                 fragmentClass = null;
@@ -257,8 +269,7 @@ public class DrawerActivity extends AppCompatActivity
                 startActivity(i);
 
             } else {
-                Toast.makeText(getApplicationContext(), result.getContents().toString(), Toast.LENGTH_SHORT).show();
-                //should pass result to intent
+                 //should pass result to intent
 
                 //Passing data from the QRcode to the activity for buy
                 String information = result.getContents().toString();
@@ -281,7 +292,7 @@ public class DrawerActivity extends AppCompatActivity
         PendingIntent  mPendingIntent = PendingIntent.getActivity(DrawerActivity.this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
         AlarmManager mgr = (AlarmManager) DrawerActivity.this.getSystemService(Context.ALARM_SERVICE);
         mgr.set(AlarmManager.RTC, 1500, mPendingIntent);
-        System.exit(0);
+
     }
 
 
