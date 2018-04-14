@@ -67,6 +67,7 @@ public class DetailBuyActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
+        gson = new Gson();
 
 
         userInfo = sharedPreferences.getString("userRegister", null);
