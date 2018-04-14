@@ -27,6 +27,15 @@
         android:gravity="center"
         android:layout_marginTop="50dp">
 
+        <TextView
+            android:id="@+id/tvVendeurInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:gravity="center_horizontal"
+            android:text="Ex"
+            android:textSize="18sp" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
