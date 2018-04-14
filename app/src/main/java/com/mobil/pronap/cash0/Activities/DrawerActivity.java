@@ -85,7 +85,9 @@ public class DrawerActivity extends AppCompatActivity
         container = (FrameLayout) findViewById(R.id.flContent);
         settings = new Settings();
         sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
+        gson = new Gson();
         editor = sharedPreferences.edit();
+
 
         toolbar.setTitle("Acceuil");
 
@@ -119,9 +121,23 @@ public class DrawerActivity extends AppCompatActivity
 
         View hView = navigationView.getHeaderView(0);
 
+        //Phone number
         tvDetailDrawer = (TextView) hView.findViewById(R.id.tvDetailDrawer);
+        //Name user
         tvTitleDrawer = (TextView) hView.findViewById(R.id.tvTitleDrawer);
         ivLogoDrawer = (ImageView) hView.findViewById(R.id.ivLogoDrawer);
+
+        if(sharedPreferences.getString("infoUser", null)==null || sharedPreferences.getString("infoUser", null).equals("")){
+            Intent i = new Intent(DrawerActivity.this, LoginActivity.class);
+        }
+        else{
+            String userInfo = sharedPreferences.getString("userRegister", null);
+            User user = gson.fromJson(userInfo, User.class);
+
+            tvDetailDrawer.setText(user.getPhone().toString());
+            tvTitleDrawer.setText(user.getName().toString());
+
+        }
 
         requestPermission();
 

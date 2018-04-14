@@ -147,6 +147,16 @@ public class LoginActivity extends AppCompatActivity{
 
     }
 
+    private int correctUser(String telephone, String password){
+
+        int val = 0;
+
+
+
+        return val;
+
+    }
+
 
     @Override
     public void onBackPressed() {
