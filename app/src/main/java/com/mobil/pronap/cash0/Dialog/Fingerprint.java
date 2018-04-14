@@ -91,8 +91,10 @@ public class Fingerprint extends DialogFragment implements FingerPrintAuthCallba
     @Override
     public void onNoFingerPrintHardwareFound() {
         tvFpInfo.setText(R.string.fingerprint_permission);
+
         pinvalidation.show(fm, "PIN");
         dismiss();
+
 
     }
 
@@ -100,6 +102,7 @@ public class Fingerprint extends DialogFragment implements FingerPrintAuthCallba
     public void onNoFingerPrintRegistered() {
         tvFpInfo.setText(R.string.fingerprint_register);
         pinvalidation.show(fm, "PIN");
+        dismiss();
     }
 
     @Override
@@ -114,7 +117,7 @@ public class Fingerprint extends DialogFragment implements FingerPrintAuthCallba
 
         Toast.makeText(detailBuyActivity, R.string.fingerprint_succes, Toast.LENGTH_SHORT).show();
         //startActivity(new Intent(MainActivity.this, AuthSuccessScreen.class));
-        detailBuyActivity.onReceivePin(1234);
+        detailBuyActivity.onReceivePin("1234");
         dismiss();
     }
 
