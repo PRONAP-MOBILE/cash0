@@ -257,8 +257,7 @@ public class DrawerActivity extends AppCompatActivity
                 startActivity(i);
 
             } else {
-                Toast.makeText(getApplicationContext(), result.getContents().toString(), Toast.LENGTH_SHORT).show();
-                //should pass result to intent
+                 //should pass result to intent
 
                 //Passing data from the QRcode to the activity for buy
                 String information = result.getContents().toString();
