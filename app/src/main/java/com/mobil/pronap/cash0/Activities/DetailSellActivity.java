@@ -14,12 +14,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.journeyapps.barcodescanner.BarcodeEncoder;
 import com.mobil.pronap.cash0.R;
+import com.mobil.pronap.cash0.models.Card;
+import com.mobil.pronap.cash0.models.User;
 
 public class DetailSellActivity extends AppCompatActivity {
 
@@ -30,12 +33,31 @@ public class DetailSellActivity extends AppCompatActivity {
     Toolbar customToolbar;
     Intent i;
     SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+    Gson gson;
+
+    private String userInfo;
+    private String cardInfo;
+    private User user;
+    private Card card;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_sell);
         init_views();
+
+        sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        gson = new Gson();
+
+
+        userInfo = sharedPreferences.getString("userRegister", null);
+        cardInfo = sharedPreferences.getString("cardRegister", null);
+
+
+        user = gson.fromJson(userInfo, User.class);
+        card = gson.fromJson(cardInfo, Card.class);
 
         btnGenerateQR.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +70,7 @@ public class DetailSellActivity extends AppCompatActivity {
                     MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                     try{
 
-                        String transInfo = etProductPrice.getText().toString() + ";" + etProductDetail.getText().toString();
+                        String transInfo = etProductPrice.getText().toString() + ";" + etProductDetail.getText().toString() + ";" + user.getPhone().toString() + ";" + user.getName().toString() + ";" + card.getCardNumber().toString() + ";" + card.getNoCompt().toString();
 
                         BitMatrix bitMatrix = multiFormatWriter.encode(transInfo, BarcodeFormat.QR_CODE, 300,300);
                         BarcodeEncoder barcodeEncoder = new BarcodeEncoder();

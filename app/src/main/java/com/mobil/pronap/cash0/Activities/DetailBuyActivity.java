@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.speech.tts.TextToSpeech;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,7 @@ public class DetailBuyActivity extends AppCompatActivity {
 
     TextView tvProductDetail;
     TextView tvProductPrice;
+    TextView tvInfoSell;
     Button btnValidate;
     Button btnCancel;
     Toolbar customToolbar;
@@ -89,6 +91,7 @@ public class DetailBuyActivity extends AppCompatActivity {
 
             tvProductPrice.setText(information[0].toString());
             tvProductDetail.setText(information[1].toString());
+            tvInfoSell.setText("@Vendeur: "+information[3].toString());
         }
 
 
@@ -138,6 +141,7 @@ public class DetailBuyActivity extends AppCompatActivity {
 
         tvProductDetail = (TextView) findViewById(R.id.tvProductDetail);
         tvProductPrice = (TextView) findViewById(R.id.tvProductPrice);
+        tvInfoSell = (TextView) findViewById(R.id.tvVendeurInfo);
         btnValidate = (Button) findViewById(R.id.btnValidate);
         btnCancel = (Button) findViewById(R.id.btnCancel);
 
@@ -177,11 +181,14 @@ public class DetailBuyActivity extends AppCompatActivity {
         alertDialog.show();
 
 
+        getInformation = getIntent().getStringExtra("information");
+        information = getInformation.split(";");
+
         // ********* check if pin correct *****
 
         // send validation sms
 
-        if(sendBRHConfirmation(card.getNoCompt(), card.getCardNumber(), pin, card.getRoutingNumberBank(), null, null, null, information[0].toString())){
+        if(sendBRHConfirmation(card.getNoCompt(), card.getCardNumber(), pin, card.getRoutingNumberBank(), information[2].toString(), information[4].toString(), null, information[0].toString())){
 
         }else{
             Toast.makeText(getApplicationContext(),
@@ -199,7 +206,7 @@ public class DetailBuyActivity extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }
 
-        if(sendSellConfirmation("42824404", "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
+        if(sendSellConfirmation(information[2].toString(), "XXX", tvProductDetail.getText().toString(), tvProductPrice.getText().toString())){
             Toast.makeText(getApplicationContext(),
                     "SMS seller sent",
                     Toast.LENGTH_LONG).show();
