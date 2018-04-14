@@ -125,25 +125,50 @@ public class LoginActivity extends AppCompatActivity{
         User registeredUser = gsonRegistered.fromJson(register, User.class);
 
         if(!TextUtils.isEmpty(passUser.getText().toString()) && !TextUtils.isEmpty(phoneUser.getText().toString())){
-            if(inputUser.equals(registeredUser.getPhone().toString()) & inputPass.equals(registeredUser.getPassword().toString())){
-                // user has been logged in
-                User user = new User();
-                user.setPhone(inputUser);
-                gson = new Gson();
-                String json = gson.toJson(user);
-                editor.putString("infoUser",json);
-                editor.putString("lang", "fr");
-                editor.apply();
+            int val = correctUser(inputUser, inputPass);
+                if(val != 0) {
+                    // user has been logged in
+                    User user = new User();
+                    user.setPhone(inputUser);
+                    gson = new Gson();
+                    String json = gson.toJson(user);
+                    editor.putString("infoUser", json);
+                    editor.putString("lang", "fr");
+                    editor.apply();
 
-                Intent i = new Intent(LoginActivity.this, DrawerActivity.class);
-                startActivity(i);
-                //progressDialog.dismiss();
-            }
+                    Intent i = new Intent(LoginActivity.this, DrawerActivity.class);
+                    startActivity(i);
+                    //progressDialog.dismiss();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "Verifiez vos saisie", Toast.LENGTH_SHORT).show();
+                }
         }
         else{
             //Toast.makeText(getApplicationContext(), "Verifiez vos saisie", Toast.LENGTH_SHORT);
             passUser.setError("Verifiez vos saisie");
         }
+
+    }
+
+    private int correctUser(String telephone, String password){
+
+        int val = 0;
+
+        String register = sharedPreferences.getString("userRegister", null);
+        gsonRegistered = new Gson();
+        User registeredUser = gsonRegistered.fromJson(register, User.class);
+
+
+        if(!passUser.getText().toString().equals(registeredUser.getPassword()) || !phoneUser.getText().toString().equals(registeredUser.getPhone())){
+            val = 0;
+        }
+        else{
+            val = 1;
+        }
+
+
+        return val;
 
     }
 

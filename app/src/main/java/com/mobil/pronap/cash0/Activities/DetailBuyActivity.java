@@ -87,7 +87,7 @@ public class DetailBuyActivity extends AppCompatActivity {
                     pinvalidation.show(fm, "PIN");
                 }
 
-                pinvalidation.show(fm, "PIN");
+                //pinvalidation.show(fm, "PIN");
 
                 //Create the transaction object
                 Transaction trans = new Transaction();
