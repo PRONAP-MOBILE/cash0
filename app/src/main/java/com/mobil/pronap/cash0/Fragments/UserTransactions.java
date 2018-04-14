@@ -12,11 +12,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.mobil.pronap.cash0.Adapters.ArrayAdapterTransaction;
 import com.mobil.pronap.cash0.R;
 import com.mobil.pronap.cash0.models.Transaction;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by jetro on 4/9/18.
@@ -52,16 +55,16 @@ public class UserTransactions extends Fragment {
         sharedPreferences = getActivity().getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
-        //retrieveData();
+        retrieveData();
 
-        Toast.makeText(getContext(), retrieveData().toString(), Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getContext(), retrieveData().toString(), Toast.LENGTH_SHORT).show();
 
         return v;
 
     }
 
 
-    private String retrieveData() {
+    private void retrieveData() {
 
         listTransaction = new ArrayList<>();
         adapterTransaction = new ArrayAdapterTransaction(getActivity(), listTransaction);
@@ -69,11 +72,32 @@ public class UserTransactions extends Fragment {
 
         retrieveList = sharedPreferences.getString("listTransaction", null);
         gson = new Gson();
-        listTransaction  = gson.fromJson(retrieveList, ArrayList.class);
+
+        Type listType = new TypeToken<ArrayList<Transaction>>(){}.getType();
+        List<Transaction> finaList = new Gson().fromJson(retrieveList, listType);
+
+
+        for(int i = 0; i < finaList.size(); i++){
+            Transaction trans = new Transaction();
+
+            trans.setPrix(finaList.get(i).getPrix());
+            trans.setDescription(finaList.get(i).getDescription());
+            trans.setDateTrans(finaList.get(i).getDateTrans());
+
+            //add the transaction to the list for the adapter
+            listTransaction.add(trans);
+
+        }
+
+        String jsonList = new Gson().toJson(listTransaction);
+        editor.putString("listTransaction",jsonList);
+
 
         adapterTransaction.notifyDataSetChanged();
 
-        return listTransaction.toString();
+
+
+        //return finaList.get(0).getPrix();
 
     }
 

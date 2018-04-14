@@ -89,7 +89,7 @@ public class DetailBuyActivity extends AppCompatActivity {
             getInformation = intent.getStringExtra("information");
             information = getInformation.split(";");
 
-            tvProductPrice.setText(information[0].toString() + "Gourdes");
+            tvProductPrice.setText(information[0].toString());
             tvProductDetail.setText(information[1].toString());
             tvInfoSell.setText("@Vendeur: "+information[3].toString());
         }
@@ -117,7 +117,7 @@ public class DetailBuyActivity extends AppCompatActivity {
 
                 list.add(trans);
                 String jsonList = new Gson().toJson(list);
-                editor.putString("listTrans",jsonList);
+                editor.putString("listTransaction",jsonList);
 
                 //Toast.makeText(getApplicationContext(), listTrans.toString(), Toast.LENGTH_SHORT).show();
 
