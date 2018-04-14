@@ -14,7 +14,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/limitSpend"
+            android:text="Limite dépense"
             android:textSize="20sp"
             android:textStyle="bold"
             />
@@ -27,13 +27,13 @@
             android:digits="1234567890."
             android:layout_height="wrap_content"
             android:textColor="@android:color/holo_red_light"
-            android:hint="@string/prixLimit"/>
+            android:hint="Ex:10000 Gdes"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/btLimitSpend"
-            android:text="@string/btnLimit"
+            android:text="Sauvegarder"
             android:textSize="20dp" />
 
 

@@ -89,7 +89,7 @@ public class DetailBuyActivity extends AppCompatActivity {
             getInformation = intent.getStringExtra("information");
             information = getInformation.split(";");
 
-            tvProductPrice.setText(information[0].toString());
+            tvProductPrice.setText(information[0].toString() + "Gourdes");
             tvProductDetail.setText(information[1].toString());
             tvInfoSell.setText("@Vendeur: "+information[3].toString());
         }
