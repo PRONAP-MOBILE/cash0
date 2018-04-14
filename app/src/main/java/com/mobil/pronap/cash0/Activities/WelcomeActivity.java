@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.mobil.pronap.cash0.R;
+import com.mobil.pronap.cash0.Utils.LanguageHelper;
 import com.mobil.pronap.cash0.Utils.PreferenceManager;
 import com.mobil.pronap.cash0.models.Transaction;
 
@@ -35,6 +36,7 @@ public class WelcomeActivity extends AppCompatActivity {
     private int[] layouts;
     private Button btnSkip, btnNext;
     private PreferenceManager prefManager;
+    public static String langPref = "HT";
 
     //Variables for persistence
     SharedPreferences sharedPreferences ;
@@ -46,6 +48,15 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        try{
+            langPref = sharedPreferences.getString("lang", "HT");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+                LanguageHelper.changeLocal(getResources(), langPref);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
         // Checking for first time launch - before calling setContentView()
         prefManager = new PreferenceManager(this);

@@ -47,15 +47,12 @@ public class Pinvalidation extends DialogFragment {
             public void onClick(View view) {
                 if(!TextUtils.isEmpty(etPin.getText().toString())){
                     if(etPin.getText().toString().length() == 4){
-
                         if(Integer.parseInt(etPin.getText().toString()) == 1234){
                             detailBuyActivity.onReceivePin(Integer.parseInt(etPin.getText().toString()));
                             dismiss();
                         }else{
                             etPin.setError("PIN incorrect");
                         }
-
-
                     }else{
                         etPin.setError("Le PIN doit contenir 4 chiffres");
                     }

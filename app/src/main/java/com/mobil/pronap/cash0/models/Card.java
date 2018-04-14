@@ -16,6 +16,7 @@ public class Card {
     private String noCompt;
     private String routingNumberBank;
     private String userdId;
+    private String type;
 
     public String getCardNumber() {
         return cardNumber;
@@ -61,6 +62,7 @@ public class Card {
             this.noCompt = jsonObject.getString("noCompt");
             this.routingNumberBank = jsonObject.getString("routingNumberBank");
             this.userdId = jsonObject.getString("userID");
+            this.type = jsonObject.getString("typeCard");
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -81,4 +83,11 @@ public class Card {
         return cards;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }

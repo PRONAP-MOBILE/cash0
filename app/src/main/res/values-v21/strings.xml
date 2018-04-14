@@ -65,19 +65,33 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Parametre</string>
+    <string name="action_settings">Settings</string>
     <string name="logout">Disconnect</string>
     <string name="lang">Language :</string>
     <string name="valider">Validate</string>
-    <string name="mes_transactions">Mes transactions</string>
+    <string name="mes_transactions">My transactions</string>
     <string name="acceuil">Home</string>
     <string name="regulateur">Regulator</string>
     <string name="mon_compte">My account</string>
-    <string name="communicate">Communicate</string>
+    <string name="communicate">Other</string>
     <string name="partager">Share</string>
     <string name="test">dvdv</string>
     <string name="incorrect_field">this field is incorrect</string>
     <string name="same_password_error">Passwords must be the same</string>
     <string name="card_digits_error">The number of ccharacters is incorrect</string>
     <string name="creating_account">In progress...</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="cancel_fgprint">Cancel</string>
+    <string name="use_pin_instead">Use PIN instead</string>
+    <string name="fingerprint_permission">We don\'t have acces to your fingerprint sensor</string>
+    <string name="fingerprint_register">No fingerprint has been registered</string>
+    <string name="fingerprint_support">Your device don\'t support fingerprint</string>
+    <string name="fingerprint_error1">Cannot recognize your finger print. Please try again.</string>
+    <string name="fingerprint_error2">Cannot initialize finger print authentication. Please type 1234 to authenticate.</string>
+    <string name="fingerprint_succes">Authentication succeeded.</string>
+    <string name="fingerprint_scan">Scan your finger</string>
+    <string name="restart">The app will restart soon</string>
+    <string name="next">Skip</string>
+    <string name="next_welcome">Next</string>
+    <string name="sign_up_btn">Sign up</string>
 </resources>

@@ -77,4 +77,15 @@
     <string name="incorrect_field">espas sa pa korek</string>
     <string name="same_password_error">modpas yo dwe menm</string>
     <string name="card_digits_error">kantite nonb ou mete a pa bon</string>
+    <string name="cancel_fgprint">Anile</string>
+    <string name="use_pin_instead">Itlize PIN pito</string>
+    <string name="fingerprint_permission">Nou pa gen aksè a lèkte pou li anprint ou</string>
+    <string name="fingerprint_register">okenn anprint pat anrejistre</string>
+    <string name="fingerprint_error2">Nou pa ka demare lektè anprint la. Itilize PIN pito</string>
+    <string name="fingerprint_succes">Legalize avèk siksè</string>
+    <string name="fingerprint_scan">Plase dwèt ou</string>
+    <string name="restart">Aplikasyon an ap redemare pou fè chanjman sa yo</string>
+    <string name="next">Passer</string>
+    <string name="next_welcome">Suivant</string>
+    <string name="sign_up_btn">S\'enregistrer</string>
 </resources>

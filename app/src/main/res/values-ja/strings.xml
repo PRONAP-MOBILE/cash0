@@ -15,7 +15,7 @@
     <string name="action_sign_in">Koneksyon</string>
     <string name="action_sign_in_short">Konekte</string>
     <string name="error_invalid_email">Imel lan pa valid</string>
-    <string name="error_invalid_password">Modpas la trò kout</string>
+    <string name="error_invalid_password">Modpas la tro kout</string>
     <string name="error_incorrect_password">Modpas la pa korèk</string>
     <string name="error_field_required">Espas sa esansyel</string>
     <string name="permission_rationale">"Pèmisyon pou aksede a kontak ou yo enpotan pou edew itilize aplikasyon an."
@@ -28,7 +28,7 @@
     <string name="sign_up_LName">Prenon :</string>
     <string name="sign_up_phone">Telefon: </string>
     <string name="sign_up_adress">Adrès:</string>
-    <string name="info_perso">Enfomasyon pesonel</string>
+    <string name="info_perso">Infomasyon pesonel</string>
     <string name="date_expiration">Dat ekspirasyon:</string>
     <string name="no_carte">No kat:</string>
     <string name="no_compte">No kont:</string>
@@ -72,9 +72,20 @@
     <string name="acceuil">Akèy</string>
     <string name="regulateur">Regilatè</string>
     <string name="mon_compte">kont mwen</string>
-    <string name="communicate">Kominike</string>
+    <string name="communicate">Lòt</string>
     <string name="partager">pataje</string>
     <string name="incorrect_field">espas sa pa korek</string>
     <string name="same_password_error">modpas yo dwe menm</string>
     <string name="card_digits_error">kantite nonb ou mete a pa bon</string>
+    <string name="cancel_fgprint">Anile</string>
+    <string name="use_pin_instead">Itlize PIN pito</string>
+    <string name="fingerprint_permission">Nou pa gen aksè a lèkte pou li anprint ou</string>
+    <string name="fingerprint_register">okenn anprint pat anrejistre</string>
+    <string name="fingerprint_error2">Nou pa ka demare lektè anprint la. Itilize PIN pito</string>
+    <string name="fingerprint_succes">Legalize avèk siksè</string>
+    <string name="fingerprint_scan">Plase dwèt ou</string>
+    <string name="restart">Aplikasyon an ap redemare pou fè chanjman sa yo</string>
+    <string name="next">Pase</string>
+    <string name="next_welcome">Apre</string>
+    <string name="sign_up_btn">anrejistre\'m</string>
 </resources>

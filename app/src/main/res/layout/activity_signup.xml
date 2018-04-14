@@ -7,7 +7,6 @@
     android:isScrollContainer="true"
     android:orientation="vertical"
     android:background="@android:color/white"
-    android:paddingTop="5dp"
     tools:context="com.mobil.pronap.cash0.Activities.SignupActivity">
 
 
@@ -49,6 +48,22 @@
                     android:textColor="@color/darkBlue"
                     android:textSize="24sp"
                     android:textAlignment="center"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+
+                    <EditText
+                        android:id="@+id/edtName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Nom complet"
+                        android:inputType="textAutoComplete"
+                        android:maxLines="1"
+                        android:singleLine="true" />
+
+                </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
@@ -185,7 +200,7 @@
                 android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="S'enregistrer"
+                android:text="@string/sign_up_btn"
                 android:layout_marginBottom="10dp"
                 android:textColor="@color/white"
                 android:textSize="17sp"

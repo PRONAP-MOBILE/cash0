@@ -1,8 +1,13 @@
 package com.mobil.pronap.cash0.Activities;
 
+import android.annotation.TargetApi;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -34,11 +39,17 @@ import com.mobil.pronap.cash0.Fragments.UserTransactions;
 import com.mobil.pronap.cash0.R;
 import com.mobil.pronap.cash0.models.User;
 
+import static android.Manifest.permission.BODY_SENSORS;
+import static android.Manifest.permission.READ_CONTACTS;
+import static android.Manifest.permission.RECEIVE_SMS;
+import static android.Manifest.permission.SEND_SMS;
+import static android.Manifest.permission.USE_FINGERPRINT;
+
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    public static String lang = "fr";
+    public static String lang = "HT";
     public FrameLayout container;
     public DrawerLayout drawer;
     public NavigationView navigationView;
@@ -57,6 +68,11 @@ public class DrawerActivity extends AppCompatActivity
 
     SharedPreferences sharedPreferences ;
     SharedPreferences.Editor editor ;
+    private static final int REQUEST_READ_CONTACTS = 0;
+    private static final int REQUEST_SEND_SMS = 0;
+    private static final int REQUEST_SENSOR = 0;
+    private static final int REQUEST_FINGERPRINT = 0;
+    private static final int REQUEST_WRITE_SMS = 0;
 
 
     @Override
@@ -107,6 +123,7 @@ public class DrawerActivity extends AppCompatActivity
         tvTitleDrawer = (TextView) hView.findViewById(R.id.tvTitleDrawer);
         ivLogoDrawer = (ImageView) hView.findViewById(R.id.ivLogoDrawer);
 
+        requestPermission();
 
 
 
@@ -241,6 +258,147 @@ public class DrawerActivity extends AppCompatActivity
             startActivity(i);
         }
     }
+
+    public void restartApp(){
+        Intent mStartActivity = new Intent(DrawerActivity.this, DrawerActivity.class);
+        int mPendingIntentId = 123456;
+        PendingIntent  mPendingIntent = PendingIntent.getActivity(DrawerActivity.this, mPendingIntentId, mStartActivity, PendingIntent.FLAG_CANCEL_CURRENT);
+        AlarmManager mgr = (AlarmManager) DrawerActivity.this.getSystemService(Context.ALARM_SERVICE);
+        mgr.set(AlarmManager.RTC, 1500, mPendingIntent);
+        System.exit(0);
+    }
+
+
+    public void requestPermission(){
+        if(!mayRequestContacts()){
+            return;
+        }
+        if(!mayRequestFingerPrint()){
+            return;
+        }
+        if(!mayRequestSMS()){
+            return;
+        }
+        if(!mayRequestWriteSMS()){
+            return;
+        }
+        if(!mayRequestSensor()){
+            return;
+        }
+    }
+
+    private boolean mayRequestContacts() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+        if (checkSelfPermission(READ_CONTACTS) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
+            Snackbar.make(toolbar, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+                    .setAction(android.R.string.ok, new View.OnClickListener() {
+                        @Override
+                        @TargetApi(Build.VERSION_CODES.M)
+                        public void onClick(View v) {
+                            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
+                        }
+                    });
+        } else {
+            requestPermissions(new String[]{READ_CONTACTS}, REQUEST_READ_CONTACTS);
+        }
+        return false;
+    }
+
+    private boolean mayRequestSMS() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+        if (checkSelfPermission(SEND_SMS) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        if (shouldShowRequestPermissionRationale(READ_CONTACTS)) {
+            Snackbar.make(toolbar, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+                    .setAction(android.R.string.ok, new View.OnClickListener() {
+                        @Override
+                        @TargetApi(Build.VERSION_CODES.M)
+                        public void onClick(View v) {
+                            requestPermissions(new String[]{SEND_SMS}, REQUEST_SEND_SMS);
+                        }
+                    });
+        } else {
+            requestPermissions(new String[]{SEND_SMS}, REQUEST_SEND_SMS);
+        }
+        return false;
+    }
+
+    private boolean mayRequestFingerPrint() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+        if (checkSelfPermission(USE_FINGERPRINT) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        if (shouldShowRequestPermissionRationale(USE_FINGERPRINT)) {
+            Snackbar.make(toolbar, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+                    .setAction(android.R.string.ok, new View.OnClickListener() {
+                        @Override
+                        @TargetApi(Build.VERSION_CODES.M)
+                        public void onClick(View v) {
+                            requestPermissions(new String[]{USE_FINGERPRINT}, REQUEST_FINGERPRINT);
+                        }
+                    });
+        } else {
+            requestPermissions(new String[]{SEND_SMS}, REQUEST_FINGERPRINT);
+        }
+        return false;
+    }
+
+    private boolean mayRequestSensor() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+        if (checkSelfPermission(BODY_SENSORS) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        if (shouldShowRequestPermissionRationale(BODY_SENSORS)) {
+            Snackbar.make(toolbar, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+                    .setAction(android.R.string.ok, new View.OnClickListener() {
+                        @Override
+                        @TargetApi(Build.VERSION_CODES.M)
+                        public void onClick(View v) {
+                            requestPermissions(new String[]{BODY_SENSORS}, REQUEST_SENSOR);
+                        }
+                    });
+        } else {
+            requestPermissions(new String[]{BODY_SENSORS}, REQUEST_SENSOR);
+        }
+        return false;
+    }
+
+    private boolean mayRequestWriteSMS() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return true;
+        }
+        if (checkSelfPermission(RECEIVE_SMS) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        if (shouldShowRequestPermissionRationale(RECEIVE_SMS)) {
+            Snackbar.make(toolbar, R.string.permission_rationale, Snackbar.LENGTH_INDEFINITE)
+                    .setAction(android.R.string.ok, new View.OnClickListener() {
+                        @Override
+                        @TargetApi(Build.VERSION_CODES.M)
+                        public void onClick(View v) {
+                            requestPermissions(new String[]{RECEIVE_SMS}, REQUEST_WRITE_SMS);
+                        }
+                    });
+        } else {
+            requestPermissions(new String[]{RECEIVE_SMS}, REQUEST_WRITE_SMS);
+        }
+        return false;
+    }
+
+
+
 
 
     @Override

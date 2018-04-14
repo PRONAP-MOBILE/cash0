@@ -37,10 +37,10 @@
             android:id="@+id/edtphoneNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="@string/sign_up_phone"
             android:maxLines="1"
-            android:singleLine="true"
-           />
+            android:singleLine="true" />
 
         <requestFocus />
 
@@ -76,7 +76,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
+        android:paddingBottom="10dp"
         android:id="@+id/btnLoginn"
+
         android:layout_centerHorizontal="true">
 
         <Button
@@ -85,8 +87,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/inputPassword"
             android:layout_centerHorizontal="true"
+            android:background="@drawable/custom_btn"
             android:text="@string/action_sign_in"
-            android:textColor="#FFFFFF"
+            android:shadowColor="@android:color/white"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textColor="@android:color/black"
             android:textAllCaps="false"
             android:textSize="20sp"
             />
@@ -99,10 +106,15 @@
         android:id="@+id/tvSignup"
         android:text="@string/create_account_text"
         android:clickable="true"
+        android:textSize="20sp"
         android:layout_below="@+id/btnLoginn"
         android:layout_centerHorizontal="true"
+        android:shadowColor="@color/colorAccent"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
         android:layout_marginTop="20dp"
-        android:textColor="#44749D"/>
+        android:textColor="@android:color/black" android:focusable="true" />
 
 
 

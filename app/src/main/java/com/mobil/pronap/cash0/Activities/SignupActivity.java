@@ -32,6 +32,7 @@ public class SignupActivity extends AppCompatActivity {
     EditText edtPassword;
     EditText edtCheckPassword;
     EditText edtTel;
+    EditText edtName;
 
 
 
@@ -41,15 +42,6 @@ public class SignupActivity extends AppCompatActivity {
     AutoCompleteTextView tvCardNumber;
     AutoCompleteTextView tvCardDate;
 
-
-    //Information connection
-    String phone;
-    String password;
-
-    //Information about bank and card
-    String bank;
-    String cardNumber;
-    String account;
 
     //persistence
     SharedPreferences sharedPreferences ;
@@ -87,12 +79,14 @@ public class SignupActivity extends AppCompatActivity {
                 if(validationCheck()){
                     //get user info
                     User user = new User();
+                    user.setName(edtName.getText().toString());
                     user.setPhone(edtTel.getText().toString());
                     user.setPassword(edtPassword.getText().toString());
 
                     //get card info
                     Card userCard = new Card();
                     userCard.setRoutingNumberBank("00111011");
+                    userCard.setType(spBankChooser.getSelectedItem().toString());
                     userCard.setNoCompt(tvAccountNumber.getText().toString());
                     userCard.setUserdId(edtTel.getText().toString());
                     userCard.setCardNumber(tvCardNumber.getText().toString());
@@ -128,43 +122,46 @@ public class SignupActivity extends AppCompatActivity {
 
 
     public boolean validationCheck() {
-
-        if (!TextUtils.isEmpty(edtTel.getText().toString())) {
-            if (!TextUtils.isEmpty(edtPassword.getText().toString())) {
-                if (!TextUtils.isEmpty(edtCheckPassword.getText().toString())) {
-                    if (!TextUtils.isEmpty(tvAccountNumber.getText().toString())) {
-                        if (!TextUtils.isEmpty(tvCardNumber.getText().toString())) {
-                            if(edtTel.getText().toString().length() == 8){
-                                if(edtPassword.getText().toString().length() >= 8){
-                                    if(TextUtils.equals(edtPassword.getText().toString(), edtCheckPassword.getText().toString())){
-                                        if(tvCardNumber.getText().toString().length() == 16){
-                                            isValid = true;
-                                        }else{
-                                            tvCardNumber.setError(getString(R.string.card_digits_error));
+        if(!TextUtils.isEmpty(edtName.getText().toString())) {
+            if (!TextUtils.isEmpty(edtTel.getText().toString())) {
+                if (!TextUtils.isEmpty(edtPassword.getText().toString())) {
+                    if (!TextUtils.isEmpty(edtCheckPassword.getText().toString())) {
+                        if (!TextUtils.isEmpty(tvAccountNumber.getText().toString())) {
+                            if (!TextUtils.isEmpty(tvCardNumber.getText().toString())) {
+                                if (edtTel.getText().toString().length() == 8) {
+                                    if (edtPassword.getText().toString().length() >= 8) {
+                                        if (TextUtils.equals(edtPassword.getText().toString(), edtCheckPassword.getText().toString())) {
+                                            if (tvCardNumber.getText().toString().length() == 16) {
+                                                isValid = true;
+                                            } else {
+                                                tvCardNumber.setError(getString(R.string.card_digits_error));
+                                            }
+                                        } else {
+                                            edtCheckPassword.setError(getString(R.string.same_password_error));
                                         }
-                                    }else{
-                                        edtCheckPassword.setError(getString(R.string.same_password_error));
+                                    } else {
+                                        edtPassword.setError(getString(R.string.error_invalid_password));
                                     }
-                                }else{
-                                    edtPassword.setError(getString(R.string.error_invalid_password));
+                                } else {
+                                    edtTel.setError(getString(R.string.incorrect_field));
                                 }
-                            }else{
-                                edtTel.setError(getString(R.string.incorrect_field));
+                            } else {
+                                tvCardNumber.setError(getString(R.string.error_field_required));
                             }
                         } else {
-                            tvCardNumber.setError(getString(R.string.error_field_required));
+                            tvAccountNumber.setError(getString(R.string.error_field_required));
                         }
                     } else {
-                        tvAccountNumber.setError(getString(R.string.error_field_required));
+                        edtCheckPassword.setError(getString(R.string.error_field_required));
                     }
                 } else {
-                    edtCheckPassword.setError(getString(R.string.error_field_required));
+                    edtPassword.setError(getString(R.string.error_field_required));
                 }
             } else {
-                edtPassword.setError(getString(R.string.error_field_required));
+                edtTel.setError(getString(R.string.error_field_required));
             }
-        } else {
-            edtTel.setError(getString(R.string.error_field_required));
+        }else{
+            edtName.setError(getString(R.string.error_field_required));
         }
 
         alertDialog.dismiss();
@@ -174,7 +171,7 @@ public class SignupActivity extends AppCompatActivity {
 
 
     public void init_views(){
-
+        edtName = findViewById(R.id.edtName);
         edtTel =  findViewById(R.id.edtTel);
         edtPassword = findViewById(R.id.edtpassword);
         edtCheckPassword = findViewById(R.id.edtCheckpassword);

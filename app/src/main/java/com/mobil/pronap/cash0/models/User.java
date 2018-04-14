@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class User {
 
+
+    private String name;
     private String phone;
     private String password;
 
@@ -40,7 +42,7 @@ public class User {
         try {
             this.phone = jsonObject.getString("phone");
             this.password = jsonObject.getString("password");
-
+            this.name = jsonObject.getString("name");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -61,4 +63,11 @@ public class User {
         return  users;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
