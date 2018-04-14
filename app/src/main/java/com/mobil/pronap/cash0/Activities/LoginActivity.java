@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity{
     private Button login;
     private View mProgressView;
     Toolbar customToolbar;
-    public static String langPref = "fr";
+    public static String langPref = "en";
 
     //persistence
     SharedPreferences sharedPreferences ;
@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity{
 
 
         try{
-            langPref = sharedPreferences.getString("lang", "HT");
+            langPref = sharedPreferences.getString("lang", "en");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
                 LanguageHelper.changeLocal(getResources(), langPref);
             }

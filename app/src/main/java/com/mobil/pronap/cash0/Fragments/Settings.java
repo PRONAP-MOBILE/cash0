@@ -92,9 +92,9 @@ public class Settings extends DialogFragment {
                         break;
                     default:
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                            LanguageHelper.changeLocal(drawerActivity.getResources(), "HT");
+                            LanguageHelper.changeLocal(drawerActivity.getResources(), "en");
                         }
-                        editor.putString("lang", "HT");
+                        editor.putString("lang", "en");
                         editor.apply();
                         break;
 

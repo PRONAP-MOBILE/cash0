@@ -76,7 +76,7 @@
     <string name="acceuil">Acceuil</string>
     <string name="regulateur">Regulateur</string>
     <string name="mon_compte">Mon compte</string>
-    <string name="communicate">Communiquer</string>
+    <string name="communicate">Autre</string>
     <string name="partager">Partager</string>
     <string name="incorrect_field">Ce champs est incorrect</string>
     <string name="same_password_error">Les mots de passe doivent être les même</string>
@@ -91,4 +91,5 @@
     <string name="restart">L\'application va redémarrer  pour apporter les changements</string>
     <string name="next">Passer</string>
     <string name="next_welcome">Suivant</string>
+    <string name="sign_up_btn">S\'enregistrer</string>
 </resources>

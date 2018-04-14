@@ -48,10 +48,10 @@ public class LanguageHelper {
                 break;
             default:
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                    config.setLocale(Locale.JAPANESE);
-                    config.locale = Locale.JAPANESE;
+                    config.setLocale(Locale.ENGLISH);
+                    config.locale = Locale.ENGLISH;
                 }else{
-                    config.locale = Locale.JAPANESE;
+                    config.locale = Locale.ENGLISH;
                 }
                 break;
         }

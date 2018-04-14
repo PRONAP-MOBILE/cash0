@@ -72,7 +72,7 @@
     <string name="acceuil">Akèy</string>
     <string name="regulateur">Regilatè</string>
     <string name="mon_compte">kont mwen</string>
-    <string name="communicate">Kominike</string>
+    <string name="communicate">Lot</string>
     <string name="partager">pataje</string>
     <string name="incorrect_field">espas sa pa korek</string>
     <string name="same_password_error">modpas yo dwe menm</string>
@@ -87,4 +87,5 @@
     <string name="restart">Aplikasyon an ap redemare pou fè chanjman sa yo</string>
     <string name="next">Passer</string>
     <string name="next_welcome">Suivant</string>
+    <string name="sign_up_btn">S\'enregistrer</string>
 </resources>
