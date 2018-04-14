@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/all"
     android:orientation="vertical"
     tools:context="com.mobil.pronap.cash0.Activities.DetailBuyActivity">
 
@@ -13,7 +13,6 @@
         android:id="@+id/customToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/darkBlue"
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white">
     </android.support.v7.widget.Toolbar>
@@ -25,7 +24,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:gravity="center"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="100dp">
 
         <TextView
             android:id="@+id/tvVendeurInfo"
@@ -80,7 +79,7 @@
                 android:id="@+id/btnValidate"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:background="@color/darkBlue"
+                android:background="@drawable/custom_btn"
                 android:textColor="@color/white"
                 android:textSize="17sp"
                 android:text="@string/btn_buy" />
@@ -92,7 +91,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:background="@color/darkBlue"
+                android:background="@drawable/custom_btn"
                 android:textColor="@color/white"
                 android:textSize="17sp"
                 android:text="@string/cancel_fgprint" />

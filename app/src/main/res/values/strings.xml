@@ -100,4 +100,6 @@
     <string name="ex">Ex:10000 Gdes</string>
     <string name="prix_en_gourdes">Price (Gdes)</string>
     <string name="detail_sur_le_produit">Detail</string>
+    <string name="pas_correct">Incorrect</string>
+    <string name="bank">Bank :</string>
 </resources>
