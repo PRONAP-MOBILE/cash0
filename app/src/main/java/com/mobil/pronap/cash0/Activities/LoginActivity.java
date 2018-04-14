@@ -124,8 +124,11 @@ public class LoginActivity extends AppCompatActivity{
         gsonRegistered = new Gson();
         User registeredUser = gsonRegistered.fromJson(register, User.class);
 
-        if(!TextUtils.isEmpty(passUser.getText().toString()) && !TextUtils.isEmpty(phoneUser.getText().toString())){
-            int val = correctUser(inputUser, inputPass);
+        int checkVal = checkPreference();
+
+        if(checkVal!=0){
+            if(!TextUtils.isEmpty(passUser.getText().toString()) && !TextUtils.isEmpty(phoneUser.getText().toString())){
+                int val = correctUser(inputUser, inputPass);
                 if(val != 0) {
                     // user has been logged in
                     User user = new User();
@@ -143,11 +146,16 @@ public class LoginActivity extends AppCompatActivity{
                 else{
                     Toast.makeText(getApplicationContext(), "Verifiez vos saisie", Toast.LENGTH_SHORT).show();
                 }
+            }
+            else{
+                //Toast.makeText(getApplicationContext(), "Verifiez vos saisie", Toast.LENGTH_SHORT);
+                passUser.setError("Verifiez vos saisie");
+            }
         }
         else{
-            //Toast.makeText(getApplicationContext(), "Verifiez vos saisie", Toast.LENGTH_SHORT);
-            passUser.setError("Verifiez vos saisie");
+            Toast.makeText(getApplicationContext(), " Veuillez créer un compte", Toast.LENGTH_SHORT);
         }
+
 
     }
 
@@ -171,6 +179,20 @@ public class LoginActivity extends AppCompatActivity{
         return val;
 
     }
+
+    public int checkPreference(){
+        int val = 0;
+        sharedPreferences = getSharedPreferences("PreferencesTAG", Context.MODE_PRIVATE);
+        if(sharedPreferences.contains("userRegister")){
+            val = 1;
+        }
+        else{
+            val = 0;
+        }
+
+        return val;
+    }
+
 
 
     @Override
