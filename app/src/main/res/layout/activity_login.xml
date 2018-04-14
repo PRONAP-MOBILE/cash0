@@ -6,6 +6,7 @@
     android:id="@+id/activity_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/login"
     android:windowSoftInputMode="adjustResize"
     tools:context="com.mobil.pronap.cash0.Activities.LoginActivity">
 
@@ -40,6 +41,12 @@
             android:inputType="number"
             android:hint="@string/sign_up_phone"
             android:maxLines="1"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
             android:singleLine="true" />
 
         <requestFocus />
@@ -53,6 +60,7 @@
         app:passwordToggleEnabled="true"
         android:id="@+id/password"
         android:layout_below="@+id/phoneNumber"
+        android:textColorHint="@android:color/white"
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
@@ -64,6 +72,12 @@
             android:layout_height="wrap_content"
             android:hint="@string/prompt_password"
             android:inputType="textPassword"
+            android:textColorHint="@android:color/white"
+            android:textColor="@android:color/white"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
             android:maxLines="1"
             android:singleLine="true" />
 
@@ -89,7 +103,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/shape2"
             android:text="@string/action_sign_in"
-            android:shadowColor="@android:color/white"
+            android:shadowColor="@android:color/black"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
@@ -109,12 +123,13 @@
         android:textSize="20sp"
         android:layout_below="@+id/btnLoginn"
         android:layout_centerHorizontal="true"
-        android:shadowColor="@color/colorAccent"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="2"
+        android:textColor="@android:color/white"
+        android:shadowColor="@android:color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4"
         android:layout_marginTop="20dp"
-        android:textColor="@android:color/black" android:focusable="true" />
+         android:focusable="true" />
 
 
 

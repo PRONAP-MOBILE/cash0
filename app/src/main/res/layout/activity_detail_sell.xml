@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/all"
     android:orientation="vertical"
     tools:context="com.mobil.pronap.cash0.Activities.DetailBuyActivity">
 
@@ -13,7 +13,6 @@
         android:id="@+id/customToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/darkBlue"
         android:minHeight="?attr/actionBarSize"
         app:titleTextColor="@android:color/white">
     </android.support.v7.widget.Toolbar>
@@ -24,7 +23,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="80dp"
             android:orientation="vertical">
 
 
@@ -63,10 +62,10 @@
                 android:layout_centerInParent="true"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/shape2"
+                android:background="@drawable/custom_btn"
 
                 android:text="@string/generer_qr_text"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/white"
                 android:textSize="17sp" />
 
         </RelativeLayout>

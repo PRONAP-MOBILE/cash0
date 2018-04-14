@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/white"
+    android:background="@drawable/all"
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     android:orientation="vertical">
@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:background="@android:color/white"
+
         android:layout_below="@id/customToolbar"
         android:id="@+id/mainInfo">
 
@@ -32,7 +32,11 @@
             android:layout_marginTop="8dp"
             android:layout_alignLeft="@+id/tvLName"
             android:layout_alignStart="@+id/tvLName"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
             android:text="Prenom" />
 
         <TextView
@@ -45,7 +49,11 @@
             android:layout_toEndOf="@+id/ivProfil"
             android:layout_toRightOf="@+id/ivProfil"
             android:text="Nom"
-            android:textColor="@android:color/black"
+            android:shadowColor="@android:color/black"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
 
@@ -59,7 +67,6 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:background="@android:color/white"
             app:srcCompat="@drawable/ic_settings" />
 
     </RelativeLayout>
@@ -72,7 +79,7 @@
         android:id="@+id/tvBankPicked"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="45dp"
         android:fontFamily="monospace"
         android:text="Banque"
         android:textColor="@android:color/black"
